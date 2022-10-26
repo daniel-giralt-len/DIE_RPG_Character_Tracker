@@ -40,21 +40,45 @@ const InputWrapper = styled.input`
     }}
 `
 
-const Stat = ({paragon, stat, value}) => (
-    <StatWrapper
-        border={paragons[paragon].statIcon}
-    >
-        <InputWrapper 
-            type="number"
-            step="1"
-            value={value}
-            name={stat}
-            id={stat}
-            min={2}
-            max={4}
-            border={paragons[paragon].statIcon}
-        />
-    </StatWrapper>
-)
+const NameWrapper = styled.h4`
+    margin: 0;
+    ${({isImportant})=>isImportant ? 'text-decoration: underline;' : ''}
+
+`
+
+const Stat = ({
+    name,
+    paragon,
+    stat,
+    value
+}) => {
+    const {
+        statIcon,
+        importantStats,
+    } = paragons[paragon]
+    return (
+        <div>
+            <NameWrapper
+                isImportant={importantStats.includes(name.toLowerCase())}
+            >
+                {name}
+            </NameWrapper>
+            <StatWrapper
+                border={statIcon}
+            >
+                <InputWrapper 
+                    type="number"
+                    step="1"
+                    value={value}
+                    name={stat}
+                    id={stat}
+                    min={2}
+                    max={4}
+                    border={statIcon}
+                />
+            </StatWrapper>
+        </div>
+    )
+}
 
 export default Stat

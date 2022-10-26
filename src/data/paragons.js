@@ -1,21 +1,27 @@
 const paragons = {
     'dictator': {
-        statIcon: 'triangle.png'
+        statIcon: 'triangle.png',
+        importantStats: ['cha'],
     },
     'fool': {
-        statIcon: 'square.png'
+        statIcon: 'square.png',
+        importantStats: ['dex', 'cha'],
     },
     'emotion knight': {
-        statIcon: 'triangleInverted.png'
+        statIcon: 'triangleInverted.png',
+        importantStats: ['str', 'con'],
     },
     'neo': {
-        statIcon: 'd10Face.png'
+        statIcon: 'd10Face.png',
+        importantStats: ['dex', 'int'],
     },
     'godbinder': {
-        statIcon: 'pentagon.png'
+        statIcon: 'pentagon.png',
+        importantStats: ['con', 'wis'],
     },
     'master': {
-        statIcon: 'triangleInverted.png'
+        statIcon: 'triangleInverted.png',
+        importantStats: ['con', 'int'],
     },
 }
 export default paragons

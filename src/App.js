@@ -26,12 +26,12 @@ const App = () => (
     <GlobalStyle/>
       <div>
         <div>Font Testing String</div>
-        <Stat value={4} paragon='dictator' />
-        <Stat value={4} paragon='fool' />
-        <Stat value={4} paragon='emotion knight' />
-        <Stat value={4} paragon='neo' />
-        <Stat value={4} paragon='godbinder' />
-        <Stat value={4} paragon='master' />
+        <Stat name='dex' value={4} paragon='dictator' />
+        <Stat name='cha' value={3} paragon='fool' />
+        <Stat name='con' value={2} paragon='emotion knight' />
+        <Stat name='guard' value={1} paragon='neo' />
+        <Stat name='health' value={0} paragon='godbinder' />
+        <Stat name='dex' value={4} paragon='master' />
       </div>
     </>
  );
