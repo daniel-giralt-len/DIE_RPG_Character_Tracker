@@ -13,9 +13,33 @@ const StatWrapper = styled.div`
     align-items: center;
 `
 
-const Stat = ({paragon, value}) => (
+const InputWrapper = styled.input`
+    padding: 0;
+    border: 0;
+    background: none;
+    ::-webkit-inner-spin-button{
+        -webkit-appearance: none; 
+        margin: 0; 
+    }
+    ::-webkit-outer-spin-button{
+        -webkit-appearance: none; 
+        margin: 0; 
+    }
+    text-align: center;
+    width: 1em;
+`
+
+const Stat = ({paragon, stat, value}) => (
     <StatWrapper border={paragons[paragon].statIcon}>
-            {value}
+        <InputWrapper 
+            type="number"
+            step="1"
+            value={2}
+            name={stat}
+            id={stat}
+            min={2}
+            max={4}
+        />
     </StatWrapper>
 )
 
