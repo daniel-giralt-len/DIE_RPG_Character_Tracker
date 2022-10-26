@@ -50,6 +50,7 @@ const Stat = ({
     name,
     paragon,
     stat,
+    translate,
     value
 }) => {
     const {
@@ -61,7 +62,7 @@ const Stat = ({
             <NameWrapper
                 isImportant={importantStats.includes(name.toLowerCase())}
             >
-                {name}
+                {translate(name)}
             </NameWrapper>
             <StatWrapper
                 border={statIcon}

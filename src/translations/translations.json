@@ -1,0 +1,43 @@
+{
+    "*": {
+        "en": "English",
+        "es": "Español",
+        "ca": "Català"
+    },
+    "en": {
+        "str":"Str",
+        "dex":"Dex",
+        "con":"Con",
+        "int":"Int",
+        "wis":"Wis",
+        "cha":"Cha",
+        "guard":"Guard",
+        "health":"Health",
+        "willpower":"Willpower",
+        "defence":"Defence"
+    },
+    "es": {
+        "str":"Frz",
+        "dex":"Des",
+        "con":"Con",
+        "int":"Int",
+        "wis":"Sab",
+        "cha":"Car",
+        "guard":"Guardia",
+        "health":"Salud",
+        "willpower":"Voluntad",
+        "defence":"Defensa"
+    },
+    "ca": {
+        "str":"Frç",
+        "dex":"Des",
+        "con":"Con",
+        "int":"Int",
+        "wis":"Sav",
+        "cha":"Car",
+        "guard":"Guàrdia",
+        "health":"Salut",
+        "willpower":"Voluntat",
+        "defence":"Defensa"
+    }
+}
