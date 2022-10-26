@@ -10,6 +10,8 @@
 
 # production
 /build
+public/*.psd
+public/*.svg
 
 # misc
 .DS_Store

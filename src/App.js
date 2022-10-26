@@ -1,7 +1,14 @@
+import Stat from './Components/Stat'
 
 function App() {
   return (
-    <div> Hi
+    <div>
+      <Stat value={4} paragon='dictator' />
+      <Stat value={4} paragon='fool' />
+      <Stat value={4} paragon='emotion knight' />
+      <Stat value={4} paragon='neo' />
+      <Stat value={4} paragon='godbinder' />
+      <Stat value={4} paragon='master' />
     </div>
   );
 }
