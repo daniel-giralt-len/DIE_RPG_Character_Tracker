@@ -27,18 +27,32 @@ const InputWrapper = styled.input`
     }
     text-align: center;
     width: 1em;
+    ${({border})=> {
+        if(border.startsWith('triangleInverted')){
+            return 'padding-bottom: 0.5em;'
+        }else if (border.startsWith('triangle')){
+            return 'padding-top: 0.3em;'
+        }else if (border.startsWith('d10Face')){
+            return 'padding-top: 0.3em;'
+        }else if (border.startsWith('pentagon')){
+            return 'padding-top: 0.1em;'
+        }
+    }}
 `
 
 const Stat = ({paragon, stat, value}) => (
-    <StatWrapper border={paragons[paragon].statIcon}>
+    <StatWrapper
+        border={paragons[paragon].statIcon}
+    >
         <InputWrapper 
             type="number"
             step="1"
-            value={2}
+            value={value}
             name={stat}
             id={stat}
             min={2}
             max={4}
+            border={paragons[paragon].statIcon}
         />
     </StatWrapper>
 )
