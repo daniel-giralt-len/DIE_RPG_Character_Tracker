@@ -2,6 +2,7 @@ import Stat from './Components/Stat'
 import { createGlobalStyle } from 'styled-components'
 import getTranslator from './translations/getTranslator'
 import AdvancementTree from './Components/AdvancementTree';
+import EmotionFlower from './Components/EmotionFlower';
 
 const GlobalStyle = createGlobalStyle`
   @font-face {
@@ -29,7 +30,7 @@ const App = () => {
       <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,200;0,500;0,700;0,900;1,200;1,500;1,700&display=swap" rel="stylesheet"></link>
       <GlobalStyle/>
       <div>
-        <AdvancementTree />
+        <EmotionFlower translate={translate} />
       </div>
     </>
   )

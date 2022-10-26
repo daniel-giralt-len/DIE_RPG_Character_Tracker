@@ -1,0 +1,11 @@
+const emotionFlower = [
+    ["ecstasy",   "joy",         "serenity"   ],
+    ["admiration","trust",       "acceptance" ],
+    ["terror",    "fear",        "aprehension"],
+    ["amazement", "surprise",    "distraction"],
+    ["grief",     "sadness",     "pensiveness"],
+    ["loathing",  "disgust",     "boredom"    ],
+    ["rage",      "anger",       "annoyance"  ],
+    ["vigilance", "anticipation","interest"   ],
+]
+export default emotionFlower;
