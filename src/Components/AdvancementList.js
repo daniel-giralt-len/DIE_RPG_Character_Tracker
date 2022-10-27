@@ -13,7 +13,7 @@ const AdvancementList = ({
                 {`${translate('advancements').toUpperCase()}`}
             </SectionTitle>
             <ul>
-                {advancements.map(title => (<ListItemWrapper>{translate(title)}</ListItemWrapper>))}
+                {advancements.map(title => (<ListItemWrapper key={title}>{translate(title)}</ListItemWrapper>))}
             </ul>
         </div>
         )

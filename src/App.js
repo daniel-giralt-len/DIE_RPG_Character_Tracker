@@ -32,6 +32,9 @@ const App = () => {
   if(!language) setCookie('language', 'en')
   if(!character) setCookie('character', {})
   const translate = getTranslator(language)
+
+  const handleNewCharacter = character => setCookie('character', { ...character, levels: {} })
+
   return (
     <>
       <GlobalStyle/>
@@ -53,6 +56,7 @@ const App = () => {
               : (<LevelUpWizard
                   nLevel={0}
                   translate={translate}
+                  onFinishWizard={handleNewCharacter}
                 />)
           }
         </main>

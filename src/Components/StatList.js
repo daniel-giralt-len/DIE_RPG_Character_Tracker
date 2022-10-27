@@ -21,7 +21,8 @@ const StatList = ({
     paragon,
     stats,
     translate,
-    maxBudget = 1
+    maxBudget = 1,
+    isValid
 }) => {
     const minBaseStatPoints = 2
     const editableStats = [ 'str', 'dex', 'con', 'int', 'wis', 'cha'
@@ -39,7 +40,7 @@ const StatList = ({
         const projectedBudget = Object.values(newStats).reduce((acc, v=0) => acc + Math.max(v-minBaseStatPoints,0), 0)
         if(projectedBudget <= maxBudget){
             setUsedPoints(projectedBudget)   
-            onStatsChange(newStats)
+            onStatsChange(newStats, projectedBudget)
         }
     }
 
@@ -54,6 +55,7 @@ const StatList = ({
     return (<div>
         <SectionTitle
             blackLabel
+            error={!isValid}
         >
             {`${translate('pick your stats').toUpperCase()} (${usedPoints}/${maxBudget})`}
         </SectionTitle>

@@ -6,6 +6,9 @@ const LabelWrapper = styled.label`
     border-radius: 0.75em;
     margin: 0.25em;
     padding: 0.1em;
+    &:hover{
+        background: grey;
+    }
     ${({selected})=>selected
         ? 'background-color: #dbdbdb;'
         : ''}
