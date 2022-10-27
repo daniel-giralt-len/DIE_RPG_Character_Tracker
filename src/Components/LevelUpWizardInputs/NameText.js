@@ -2,14 +2,14 @@ import styled from 'styled-components'
 
 const TextInput = styled.textarea`
     resize: none;
-    font-size: 1.5em;
+    overflow-y: clip;
 
-    padding: 2px 5px;
-    margin: 0;
-
-    border-color: #000;
-    width: -webkit-fill-available;
-    rows: 1;
+    border: 0.1em solid black;
+    border-radius: 0.75em;
+    margin: 0.25em;
+    padding: 0.2em;
+    
+    max-width: 90em;
     &:focus{
         outline: none;
     }
