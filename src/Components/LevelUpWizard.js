@@ -17,14 +17,17 @@ const LevelUpWizard = ({
         const onStatsChange = stats => setForm({...form, stats})
         return (<section>
             <NameText
+                name={form.name || ''}
                 onNameChange={onNameChange}
                 translate={translate}
             />
             <ParagonRadio
+                selectedParagon={form.paragon}
                 onParagonChange={onParagonChange}
                 translate={translate}
             />
             <StatsNumber
+                stats={form.stats || {}}
                 onStatsChange={onStatsChange}
                 translate={translate}
             />

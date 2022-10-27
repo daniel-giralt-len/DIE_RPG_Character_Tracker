@@ -7,7 +7,7 @@
         "statIcon": "square.png",
         "importantStats": ["dex", "cha"]
     },
-    "emotion knight": {
+    "emotionKnight": {
         "statIcon": "triangleInverted.png",
         "importantStats": ["str", "con"]
     },

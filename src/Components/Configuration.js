@@ -1,5 +1,6 @@
 import styled from 'styled-components'
 import webTranslations from '../translations/translations'
+import RadioInput from './RadioInput'
 
 const LanguageButton = styled.label`
     border: 0.1em solid black;
@@ -14,32 +15,18 @@ const LanguageButton = styled.label`
 const Configuration = ({
     selectedLanguage,
     onLanguageChange,
+    translate
 }) => {
     const languages = Object.keys(webTranslations['*'])
 
     return (
         <div>
-        {languages.map(key => {
-                const isSelected = key===selectedLanguage
-                return (<>
-                        <input
-                            type='radio'
-                            name='language'
-                            id={key}
-                            key={key}
-                            checked={isSelected}
-                            onClick={() => onLanguageChange(key)}
-                            hidden
-                        />
-                        <LanguageButton
-                            for={key}
-                            selected={isSelected}
-                        >
-                            {`${isSelected ? '>': ''}${webTranslations['*'][key]}`}
-                        </LanguageButton>
-                    </>)
-            }
-        )}            
+            <RadioInput 
+                options={languages}
+                onOptionChange={onLanguageChange}
+                selectedOption={selectedLanguage}
+                translate={translate}
+            />       
         </div>
     )
 }

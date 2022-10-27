@@ -6,7 +6,7 @@ const getTranslator = (language = 'en') => {
         const str = strIn.toLowerCase()
         const translatedStr = (
             (t && t[str]) 
-            || (t['*'] && t['*'][str]) 
+            || (translations['*'] && translations['*'][str]) 
             || strIn
         )
         return translatedStr

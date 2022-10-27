@@ -4,11 +4,12 @@ const TextInput = styled.textarea`
     resize: none;
     overflow-y: clip;
 
-    border: 0.1em solid black;
-    border-radius: 0.75em;
+    border: none;
+    border-bottom: 0.1em solid black;
     margin: 0.25em;
     padding: 0.2em;
-    
+    padding-bottom: 0;
+
     max-width: 90em;
     &:focus{
         outline: none;
