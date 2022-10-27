@@ -1,15 +1,24 @@
+import { useState } from 'react'
 import styled from 'styled-components'
-import webTranslations from '../translations/translations'
+
 import RadioInput from './RadioInput'
 
-const LanguageButton = styled.label`
+import webTranslations from '../translations/translations'
+
+const Button = styled.button`
+    font-size: 0.75em;
     border: 0.1em solid black;
-    border-radius: 0.75em;
     margin: 0.25em;
     padding: 0.1em;
-    ${({selected})=>selected
-        ? 'background-color: #dbdbdb;'
-        : ''}
+    background: #fff;
+    &:hover{
+        background: grey;
+    }
+`
+
+const ConfigurationWrapper = styled.div`
+    display: flex;
+    flex-direction: column
 `
 
 const Configuration = ({
@@ -17,17 +26,27 @@ const Configuration = ({
     onLanguageChange,
     translate
 }) => {
+    const [hidden, setHidden] = useState(true)
     const languages = Object.keys(webTranslations['*'])
 
+    const toggleHidden = () => setHidden(!hidden)
+
     return (
-        <div>
-            <RadioInput 
-                options={languages}
-                onOptionChange={onLanguageChange}
-                selectedOption={selectedLanguage}
-                translate={translate}
-            />       
-        </div>
+        <ConfigurationWrapper>
+            <Button onClick={toggleHidden}>
+                {hidden?'vv':'^^'}
+            </Button>
+            {
+                !hidden && (
+                    <RadioInput 
+                        options={languages}
+                        onOptionChange={onLanguageChange}
+                        selectedOption={selectedLanguage}
+                        translate={translate}
+                    />       
+                )
+            }
+        </ConfigurationWrapper>
     )
 }
 

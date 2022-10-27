@@ -1,12 +1,13 @@
+import { useCookies } from 'react-cookie'
+import styled, { createGlobalStyle } from 'styled-components'
+
 import Stat from './Components/Stat'
-import { createGlobalStyle } from 'styled-components'
 import getTranslator from './translations/getTranslator'
 import AdvancementTree from './Components/AdvancementTree'
 import Configuration from './Components/Configuration'
 import EmotionFlower from './Components/EmotionFlower'
 import CharacterSheet from './Components/CharacterSheet'
 import LevelUpWizard from './Components/LevelUpWizard'
-import { useCookies } from 'react-cookie'
 
 const GlobalStyle = createGlobalStyle`
   @font-face {
@@ -25,6 +26,17 @@ const GlobalStyle = createGlobalStyle`
   }
 `;
 
+const Centerer = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+`
+
+const MainWrapper = styled.main`
+  max-width: 600px;
+  
+`
+
 const App = () => {
   const [cookies, setCookie] = useCookies(['language', 'character'])
   const {language, character} = cookies
@@ -39,27 +51,29 @@ const App = () => {
     <>
       <GlobalStyle/>
       <div>
-        <header>
-          <Configuration
-            selectedLanguage={language}
-            onLanguageChange={newLanguage => setCookie('language', newLanguage)}
-            translate={translate}
-          />
-        </header>
-        <main>
-          {
-            character.paragon 
-              ? (<CharacterSheet
-                  {...character}
-                  translate={translate}
-                />)
-              : (<LevelUpWizard
-                  nLevel={0}
-                  translate={translate}
-                  onFinishWizard={handleNewCharacter}
-                />)
-          }
-        </main>
+        <Centerer>
+          <header>
+            <Configuration
+              selectedLanguage={language}
+              onLanguageChange={newLanguage => setCookie('language', newLanguage)}
+              translate={translate}
+            />
+          </header>
+          <MainWrapper>
+            {
+              character.paragon 
+                ? (<CharacterSheet
+                    {...character}
+                    translate={translate}
+                  />)
+                : (<LevelUpWizard
+                    nLevel={0}
+                    translate={translate}
+                    onFinishWizard={handleNewCharacter}
+                  />)
+            }
+          </MainWrapper>
+        </Centerer>
       </div>
     </>
   )

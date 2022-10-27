@@ -1,18 +1,8 @@
-import styled from 'styled-components'
-
-const ButtonWrapper = styled.button`
-    border: 0.1em solid black;
-    margin: 0.25em;
-    padding: 0.1em;
-    background: #fff;
-    &:hover{
-        background: grey;
-    }
-`
+import { Button } from "../sharedComponents"
 
 const SubmitButton = ({onSubmit, translate}) => {
-    return (<ButtonWrapper onClick={onSubmit}>
+    return (<Button onClick={onSubmit}>
         {translate('next').toUpperCase()}
-    </ButtonWrapper>)
+    </Button>)
 }
 export default SubmitButton

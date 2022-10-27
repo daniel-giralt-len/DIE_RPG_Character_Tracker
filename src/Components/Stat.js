@@ -1,6 +1,10 @@
 import paragons from '../data/paragons'
 import styled from 'styled-components'
 
+const StatSectionWrapper = styled.div`
+    margin: 0 0.33em;
+`
+
 const StatWrapper = styled.div`
     background: url(${({border})=>border});
     background-size: cover;
@@ -61,7 +65,7 @@ const Stat = ({
         importantStats,
     } = paragons[paragon]
     return (
-        <div>
+        <StatSectionWrapper>
             <NameWrapper
                 isImportant={importantStats.includes(name)}
             >
@@ -83,7 +87,7 @@ const Stat = ({
                     onChange={e => onStatChange(name, parseInt(e.target.value))}
                 />
             </StatWrapper>
-        </div>
+        </StatSectionWrapper>
     )
 }
 

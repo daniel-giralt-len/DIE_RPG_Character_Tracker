@@ -57,7 +57,11 @@ const StatList = ({
             blackLabel
             error={!isValid}
         >
-            {`${translate('pick your stats').toUpperCase()} (${usedPoints}/${maxBudget})`}
+            {
+                editable
+                ? `${translate('pick your stats').toUpperCase()} (${usedPoints}/${maxBudget})`
+                : translate('stats').toUpperCase()
+            }
         </SectionTitle>
         <StatListWrapper lineBreak>
             {editableStats.map(name => (<Stat
