@@ -22,7 +22,7 @@ const StatList = ({
     stats,
     translate,
     maxBudget = 1,
-    isValid
+    isValid = true
 }) => {
     const minBaseStatPoints = 2
     const editableStats = [ 'str', 'dex', 'con', 'int', 'wis', 'cha'

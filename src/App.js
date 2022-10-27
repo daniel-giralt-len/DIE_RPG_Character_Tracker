@@ -51,7 +51,7 @@ const App = () => {
             character.paragon 
               ? (<CharacterSheet
                   {...character}
-                
+                  translate={translate}
                 />)
               : (<LevelUpWizard
                   nLevel={0}
