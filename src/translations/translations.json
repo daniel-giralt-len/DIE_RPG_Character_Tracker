@@ -39,7 +39,16 @@
         "vigilance": "Vigilance",
         "anticipation": "Anticipation",
         "interest": "Interest",
-        "emotions": "Emotions"
+        "emotions": "Emotions",
+        "dictator": "Dictator",
+        "fool": "Fool",
+        "emotionknight": "Emotion Knight",
+        "neo": "Neo",
+        "godbinder": "Godbinder",
+        "master": "Master",
+        "what is your name?": "What is your name?",
+        "select your paragon:": "Select your paragon:",
+        "next": "Next"
     },
     "es": {
         "str":"Frz",
@@ -76,7 +85,16 @@
         "vigilance": "Vigilance",
         "anticipation": "Anticipation",
         "interest": "Interest",
-        "emotions": "Emotions"
+        "emotions": "Emotions",
+        "dictator": "Dictator",
+        "fool": "Fool",
+        "emotionknight": "Emotion Knight",
+        "neo": "Neo",
+        "godbinder": "Godbinder",
+        "master": "Master",
+        "what is your name?": "What is your name?",
+        "select your paragon:": "Select your paragon:",
+        "next": "Next"
     },
     "ca": {
         "str":"Frç",
@@ -113,6 +131,15 @@
         "vigilance": "Vigilance",
         "anticipation": "Anticipation",
         "interest": "Interest",
-        "emotions": "Emotions"
+        "emotions": "Emotions",
+        "dictator": "Dictator",
+        "fool": "Fool",
+        "emotionknight": "Emotion Knight",
+        "neo": "Neo",
+        "godbinder": "Godbinder",
+        "master": "Master",
+        "what is your name?": "What is your name?",
+        "select your paragon:": "Select your paragon:",
+        "next": "Next"
     }
 }
