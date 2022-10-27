@@ -50,7 +50,10 @@ const App = () => {
                   {...character}
                 
                 />)
-              : (<LevelUpWizard nLevel={0} />)
+              : (<LevelUpWizard
+                  nLevel={0}
+                  translate={translate}
+                />)
           }
         </main>
       </div>
