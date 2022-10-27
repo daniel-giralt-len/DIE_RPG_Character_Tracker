@@ -1,11 +1,47 @@
 {
     "db": {
-        
+        "AN INTERESTING DECISION": {"forcedAt": 4},
+        "CHOSEN OF THE FAIR": {},
+        "DEUS EX MACHINA": {},
+        "GIFTS OF THE FAIR": {},
+        "GOLD SOURCE ": {},
+        "HACKROMANCER": {},
+        "NEOTECH": {},
+        "NEW GIFT": {},
+        "OVERCHARGE": {},
+        "PAWN SHOP": {},
+        "SICK ASS RIDE": {},
+        "THE BIG SCORE": {},
+        "UPGRADE": {}
     },
     "forced": {
-
+        "level": 10,
+        "id": "AN INTERESTING DECISION"
     },
     "positions": {
-        
+        "1": [
+            "GIFTS OF THE FAIR",
+            "NEOTECH",
+            "OVERCHARGE"
+        ],
+        "2": "NEW GIFT",
+        "3": "NEW GIFT",
+        "4": "PAWN SHOP",
+        "5": "UPGRADE",
+        "6": "GOLD SOURCE ",
+        "7": "NEW GIFT",
+        "8": "UPGRADE",
+        "9": "NEW GIFT",
+        "10": "UPGRADE",
+        "11": "SICK ASS RIDE",
+        "12": "NEW GIFT",
+        "13": "UPGRADE",
+        "14": "THE BIG SCORE",
+        "15": "UPGRADE",
+        "16": "DEUS EX MACHINA",
+        "17": "UPGRADE",
+        "18": "HACKROMANCER",
+        "19": "UPGRADE",
+        "20": "CHOSEN OF THE FAIR"
     }
 }

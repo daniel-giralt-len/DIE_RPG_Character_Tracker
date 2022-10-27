@@ -1,11 +1,42 @@
 {
     "db": {
-        
+        "A KNIGHT’S CONFIRMATION": { "forcedAt": 6 },
+        "ADVANCE CREATIVE VIOLENCE": {},
+        "DUAL WIELD": {},
+        "EMOTION DRAINING": {},
+        "EMOTIONAL VAMPIRE": {},
+        "KNIGHTMARE": {},
+        "MASTER OF THE ORDER": {},
+        "NEW STANCE: ANY": {},
+        "NEW STANCE: COMBAT": {},
+        "NEW STANCE: SOCIAL": {},
+        "NEW VENTING ABILITY": {},
+        "SECOND ACTIVE STANCE": {},
+        "SINGLE-MINDED": {}
     },
     "forced": {
-
+        "level": 8,
+        "id": "A KNIGHT’S CONFIRMATION"
     },
     "positions": {
-        
+        "2": "EMOTION DRAINING",
+        "3": "NEW STANCE: COMBAT",
+        "4": "ADVANCE CREATIVE VIOLENCE",
+        "5": "NEW STANCE: SOCIAL",
+        "6": "KNIGHTMARE",
+        "7": "NEW STANCE: ANY",
+        "8": "NEW VENTING ABILITY",
+        "9": "SECOND ACTIVE STANCE",
+        "10": "NEW STANCE: ANY",
+        "11": "EMOTIONAL VAMPIRE",
+        "12": "ADVANCE CREATIVE VIOLENCE",
+        "13": "NEW STANCE: ANY",
+        "14": "ADVANCE CREATIVE VIOLENCE",
+        "15": "NEW VENTING ABILITY",
+        "16": "MASTER OF THE ORDER",
+        "17": "NEW VENTING ABILITY",
+        "18": "SINGLE-MINDED",
+        "19": "NEW STANCE: ANY",
+        "20": "DUAL WIELD"
     }
 }

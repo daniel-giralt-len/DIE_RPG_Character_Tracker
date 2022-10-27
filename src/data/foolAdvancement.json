@@ -1,11 +1,40 @@
 {
     "db": {
-        
+        "A STUPID PLAN, BUT IT JUST MIGHT WORK": {},
+        "A TRIP TO CLOWNSCHOOL": {},
+        "CLEAN SLATE": {},
+        "CLOWNSHOW": {},
+        "DON’T GIVE A FUCK": {},
+        "HOLY FOOL": {},
+        "JACK OF ALL TRADES": {},
+        "KING FOR A DAY": {},
+        "KNACKS": {},
+        "LUCKY BREAK": { "forcedAt": 6 },
+        "PUSHING IT": {}
     },
     "forced": {
-
+        "level": 6,
+        "id": "LUCKY BREAK"
     },
     "positions": {
-        
+        "2": "A TRIP TO CLOWN SCHOOL",
+        "3": "KNACKS",
+        "4": "CLEAN SLATE",
+        "5": "KNACKS",
+        "6": "JACK OF ALL TRADES",
+        "7": "A TRIP TO CLOWN SCHOOL",
+        "8": "KNACKS",
+        "9": "A STUPID PLAN, BUT IT JUST MIGHT WORK",
+        "10": "KNACKS",
+        "11": "A TRIP TO CLOWN SCHOOL",
+        "12": "PUSHING IT",
+        "13": "A TRIP TO CLOWNSCHOOL",
+        "14": "KING FOR A DAY",
+        "15": "KNACKS",
+        "16": "DON’T GIVE A FUCK",
+        "17": "A TRIP TO CLOWNSCHOOL",
+        "18": "CLOWNSHOW",
+        "19": "KNACKS",
+        "20": "HOLY FOOL"
     }
 }
