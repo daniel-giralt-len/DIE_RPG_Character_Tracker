@@ -1,7 +1,19 @@
-import paragons from '../data/paragons'
+import styled from 'styled-components'
+import { useState } from "react"
+
 import SectionTitle from "./SectionTitle"
 import Stat from "./Stat"
-import { useState } from "react"
+
+import paragons from '../data/paragons'
+
+const StatListWrapper = styled.div`
+    display: flex;
+    justify-content: space-evenly;
+    padding: 0.5em 0;
+    ${({lineBreak})=>lineBreak ? `
+    border-bottom: 0.2em solid black;
+        `: ''}
+`
 
 const StatList = ({
     editable = false,
@@ -41,21 +53,25 @@ const StatList = ({
     })
 
     return (<div>
-        <SectionTitle>{`${translate('pick your stats')} (${usedPoints}/${maxBudget})`}</SectionTitle>
-        <div>
+        <SectionTitle
+            blackLabel
+        >
+            {`${translate('pick your stats').toUpperCase()} (${usedPoints}/${maxBudget})`}
+        </SectionTitle>
+        <StatListWrapper lineBreak>
             {editableStats.map(name => (<Stat
                 {...getGeneralParameters(name)}
                 disabled={!editable}
                 isBaseStat
                 value={stats[name] || 2}
             />))}
-        </div>
-        <div>
+        </StatListWrapper>
+        <StatListWrapper>
             {Object.entries(calculatedStats).map(([name, value]) => (<Stat 
                 {...getGeneralParameters(name)}
                 value={value || 0}
             />))}
-        </div>
+        </StatListWrapper>
     </div>)
 }
 export default StatList

@@ -27,6 +27,7 @@ const InputWrapper = styled.input`
     }
     text-align: center;
     width: 1em;
+    ${({disabled})=> disabled?'color: gray;':''}
     ${({border})=> {
         if(border.startsWith('triangleInverted')){
             return 'padding-bottom: 0.5em;'
