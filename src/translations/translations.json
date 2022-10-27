@@ -48,7 +48,8 @@
         "master": "Master",
         "what is your name?": "What is your name?",
         "select your paragon:": "Select your paragon:",
-        "next": "Next"
+        "next": "Next",
+        "pick your stats": "Pick your stats"
     },
     "es": {
         "str":"Frz",
@@ -94,7 +95,8 @@
         "master": "Master",
         "what is your name?": "What is your name?",
         "select your paragon:": "Select your paragon:",
-        "next": "Next"
+        "next": "Next",
+        "pick your stats": "Pick your stats"
     },
     "ca": {
         "str":"Frç",
@@ -140,6 +142,7 @@
         "master": "Master",
         "what is your name?": "What is your name?",
         "select your paragon:": "Select your paragon:",
-        "next": "Next"
+        "next": "Next",
+        "pick your stats": "Pick your stats"
     }
 }

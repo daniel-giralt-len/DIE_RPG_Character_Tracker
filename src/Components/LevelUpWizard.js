@@ -1,7 +1,8 @@
 import { useState } from 'react'
 
+import StatList from './StatList'
+
 import NameText from './LevelUpWizardInputs/NameText'
-import StatsNumber from './LevelUpWizardInputs/StatsNumber'
 import ParagonRadio from './LevelUpWizardInputs/ParagonRadio'
 import SubmitButton from './LevelUpWizardInputs/SubmitButton'
 
@@ -10,6 +11,7 @@ const LevelUpWizard = ({
     translate
 }) => {
     const [form, setForm] = useState({})
+    console.log(form)
     const onSubmit = () => {}
     if(nLevel === 0){ //choose paragon
         const onNameChange = name => setForm({...form, name})
@@ -26,11 +28,13 @@ const LevelUpWizard = ({
                 onParagonChange={onParagonChange}
                 translate={translate}
             />
-            <StatsNumber
+            {form.paragon && (<StatList
                 stats={form.stats || {}}
                 onStatsChange={onStatsChange}
+                paragon={form.paragon}
                 translate={translate}
-            />
+                editable
+            />)}
             <SubmitButton
                 onSubmit={onSubmit}
                 translate={translate}

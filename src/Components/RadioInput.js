@@ -1,5 +1,5 @@
+import React from 'react'
 import styled from 'styled-components'
-import webTranslations from '../translations/translations'
 
 const LabelWrapper = styled.label`
     border: 0.1em solid black;
@@ -21,23 +21,22 @@ const RadioInput = ({
         <div>
         {options.map(key => {
                 const isSelected = key===selectedOption
-                return (<>
+                return (<React.Fragment key={key}>
                         <input
                             type='radio'
                             name='language'
                             id={key}
-                            key={key}
                             checked={isSelected}
-                            onClick={() => onOptionChange(key)}
+                            onChange={() => onOptionChange(key)}
                             hidden
                         />
                         <LabelWrapper
-                            for={key}
+                            htmlFor={key}
                             selected={isSelected}
                         >
                             {`${isSelected ? '> ': ''}${translate(key)}`}
                         </LabelWrapper>
-                    </>)
+                    </React.Fragment>)
             }
         )}            
         </div>

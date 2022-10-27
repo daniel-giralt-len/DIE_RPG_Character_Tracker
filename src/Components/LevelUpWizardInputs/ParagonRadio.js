@@ -1,5 +1,6 @@
 import paragons from '../../data/paragons.json'
 import RadioInput from '../RadioInput'
+import SectionTitle from '../SectionTitle'
 
 const ParagonRadio = ({
     selectedParagon,
@@ -8,7 +9,9 @@ const ParagonRadio = ({
 }) => {
     return (
     <div>
-        <h4>{translate ('select your paragon:')}</h4>
+        <SectionTitle>
+            {translate ('select your paragon:')}
+        </SectionTitle>
         <RadioInput
             options={Object.keys(paragons)}
             onOptionChange={onParagonChange}

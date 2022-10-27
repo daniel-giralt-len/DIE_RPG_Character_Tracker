@@ -47,12 +47,15 @@ const NameWrapper = styled.h4`
 `
 
 const Stat = ({
+    disabled,
+    isBaseStat = false,
     name,
+    onStatChange,
     paragon,
-    stat,
     translate,
     value
 }) => {
+    console.log(paragon)
     const {
         statIcon,
         importantStats,
@@ -60,7 +63,7 @@ const Stat = ({
     return (
         <div>
             <NameWrapper
-                isImportant={importantStats.includes(name.toLowerCase())}
+                isImportant={importantStats.includes(name)}
             >
                 {translate(name)}
             </NameWrapper>
@@ -71,11 +74,13 @@ const Stat = ({
                     type="number"
                     step="1"
                     value={value}
-                    name={stat}
-                    id={stat}
-                    min={2}
-                    max={4}
+                    name={name}
+                    id={name}
+                    min={isBaseStat ? 2 : 0}
+                    max={isBaseStat ? 4 : 100}
                     border={statIcon}
+                    disabled={!isBaseStat || disabled}
+                    onChange={e => onStatChange(name, e.target.value)}
                 />
             </StatWrapper>
         </div>
