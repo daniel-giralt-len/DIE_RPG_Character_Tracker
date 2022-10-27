@@ -1,3 +1,4 @@
+import paragons from '../data/paragons'
 import SectionTitle from "./SectionTitle"
 import Stat from "./Stat"
 import { useState } from "react"
@@ -16,9 +17,9 @@ const StatList = ({
     const calculatedStats= {
         "guard": (stats.dex||minBaseStatPoints),
         "health": (stats.con||minBaseStatPoints),
-        "willpower": (stats.wis||minBaseStatPoints)+(stats.int||minBaseStatPoints)
+        "willpower": (stats.wis||minBaseStatPoints)+(stats.int||minBaseStatPoints),
+        "defence": paragons[paragon].baseDefence
     }
-    const fixedStats= ['defence']
     const [usedPoints, setUsedPoints] = useState(0)
     console.log(stats)
 
@@ -53,10 +54,6 @@ const StatList = ({
             {Object.entries(calculatedStats).map(([name, value]) => (<Stat 
                 {...getGeneralParameters(name)}
                 value={value || 0}
-            />))}
-            {fixedStats.map(name => (<Stat 
-                {...getGeneralParameters(name)}
-                value={0}
             />))}
         </div>
     </div>)

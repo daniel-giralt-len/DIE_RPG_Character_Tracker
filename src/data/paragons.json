@@ -1,26 +1,32 @@
 {
     "dictator": {
         "statIcon": "triangle.png",
-        "importantStats": ["cha"]
+        "importantStats": ["cha"],
+        "baseDefence": 0
     },
     "fool": {
         "statIcon": "square.png",
-        "importantStats": ["dex", "cha"]
+        "importantStats": ["dex", "cha"],
+        "baseDefence": 1
     },
     "emotionKnight": {
         "statIcon": "triangleInverted.png",
-        "importantStats": ["str", "con"]
+        "importantStats": ["str", "con"],
+        "baseDefence": 1
     },
     "neo": {
         "statIcon": "d10Face.png",
-        "importantStats": ["dex", "int"]
+        "importantStats": ["dex", "int"],
+        "baseDefence": 0
     },
     "godbinder": {
         "statIcon": "pentagon.png",
-        "importantStats": ["con", "wis"]
+        "importantStats": ["con", "wis"],
+        "baseDefence": 0
     },
     "master": {
         "statIcon": "triangleInverted.png",
-        "importantStats": ["con", "int"]
+        "importantStats": ["con", "int"],
+        "baseDefence": 0
     }
 }
