@@ -2,8 +2,6 @@ import SectionTitle from "./SectionTitle"
 import Stat from "./Stat"
 import { useState } from "react"
 
-const calculateStat = (name, stats) => 0
-
 const StatList = ({
     editable = false,
     onStatsChange,
@@ -12,11 +10,15 @@ const StatList = ({
     translate,
     maxBudget = 1
 }) => {
+    const minBaseStatPoints = 2
     const editableStats = [ 'str', 'dex', 'con', 'int', 'wis', 'cha'
     ]
-    const calculatedStats = ['guard', 'health', 'willpower']
+    const calculatedStats= {
+        "guard": (stats.dex||minBaseStatPoints),
+        "health": (stats.con||minBaseStatPoints),
+        "willpower": (stats.wis||minBaseStatPoints)+(stats.int||minBaseStatPoints)
+    }
     const fixedStats= ['defence']
-    const minBaseStatPoints = 2
     const [usedPoints, setUsedPoints] = useState(0)
     console.log(stats)
 
@@ -48,9 +50,9 @@ const StatList = ({
             />))}
         </div>
         <div>
-            {calculatedStats.map(name => (<Stat 
+            {Object.entries(calculatedStats).map(([name, value]) => (<Stat 
                 {...getGeneralParameters(name)}
-                value={calculateStat(name, stats) || 0}
+                value={value || 0}
             />))}
             {fixedStats.map(name => (<Stat 
                 {...getGeneralParameters(name)}
