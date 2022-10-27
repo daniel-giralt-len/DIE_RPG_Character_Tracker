@@ -1,5 +1,6 @@
 import SectionTitle from "./SectionTitle"
 import Stat from "./Stat"
+import { useState } from "react"
 
 const calculateStat = (name, stats) => 0
 
@@ -8,14 +9,25 @@ const StatList = ({
     onStatsChange,
     paragon,
     stats,
-    translate
+    translate,
+    maxBudget = 1
 }) => {
     const editableStats = [ 'str', 'dex', 'con', 'int', 'wis', 'cha'
     ]
     const calculatedStats = ['guard', 'health', 'willpower']
     const fixedStats= ['defence']
+    const minBaseStatPoints = 2
+    const [usedPoints, setUsedPoints] = useState(0)
+    console.log(stats)
 
-    const onStatChange = (name, newValue) => onStatsChange({...stats, [name]: newValue})
+    const onStatChange = (name, newValue) => {
+        const newStats = {...stats, [name]: newValue}
+        const projectedBudget = Object.values(newStats).reduce((acc, v=0) => acc + Math.max(v-minBaseStatPoints,0), 0)
+        if(projectedBudget <= maxBudget){
+            setUsedPoints(projectedBudget)   
+            onStatsChange(newStats)
+        }
+    }
 
     const getGeneralParameters = name => ({
         key: name,
@@ -26,7 +38,7 @@ const StatList = ({
     })
 
     return (<div>
-        <SectionTitle>{translate('pick your stats')}</SectionTitle>
+        <SectionTitle>{`${translate('pick your stats')} (${usedPoints}/${maxBudget})`}</SectionTitle>
         <div>
             {editableStats.map(name => (<Stat
                 {...getGeneralParameters(name)}

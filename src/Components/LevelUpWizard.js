@@ -11,12 +11,12 @@ const LevelUpWizard = ({
     translate
 }) => {
     const [form, setForm] = useState({})
-    console.log(form)
     const onSubmit = () => {}
     if(nLevel === 0){ //choose paragon
         const onNameChange = name => setForm({...form, name})
         const onParagonChange = paragon => setForm({...form, paragon})
         const onStatsChange = stats => setForm({...form, stats})
+        const maxStatPointBudget = 2
         return (<section>
             <NameText
                 name={form.name || ''}
@@ -29,11 +29,12 @@ const LevelUpWizard = ({
                 translate={translate}
             />
             {form.paragon && (<StatList
+                editable
+                maxBudget={maxStatPointBudget}
                 stats={form.stats || {}}
                 onStatsChange={onStatsChange}
                 paragon={form.paragon}
                 translate={translate}
-                editable
             />)}
             <SubmitButton
                 onSubmit={onSubmit}

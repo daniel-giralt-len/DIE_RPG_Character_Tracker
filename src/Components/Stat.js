@@ -55,7 +55,6 @@ const Stat = ({
     translate,
     value
 }) => {
-    console.log(paragon)
     const {
         statIcon,
         importantStats,
@@ -80,7 +79,7 @@ const Stat = ({
                     max={isBaseStat ? 4 : 100}
                     border={statIcon}
                     disabled={!isBaseStat || disabled}
-                    onChange={e => onStatChange(name, e.target.value)}
+                    onChange={e => onStatChange(name, parseInt(e.target.value))}
                 />
             </StatWrapper>
         </div>
