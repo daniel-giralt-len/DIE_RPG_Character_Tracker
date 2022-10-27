@@ -33,7 +33,6 @@ const StatList = ({
         "defence": paragons[paragon].baseDefence
     }
     const [usedPoints, setUsedPoints] = useState(0)
-    console.log(stats)
 
     const onStatChange = (name, newValue) => {
         const newStats = {...stats, [name]: newValue}

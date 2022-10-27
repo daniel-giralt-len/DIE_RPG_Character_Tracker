@@ -21,7 +21,7 @@ const GlobalStyle = createGlobalStyle`
   }
   html, button, input, textarea {
     font-family: 'Minion Pro', sans-serif;
-    font-size: 1em;
+    font-size: 1.15em;
   }
 `;
 

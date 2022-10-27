@@ -10,7 +10,7 @@ const ParagonRadio = ({
     return (
     <div>
         <SectionTitle>
-            {translate ('select your paragon:')}
+            {translate('select your paragon:').toUpperCase()}
         </SectionTitle>
         <RadioInput
             options={Object.keys(paragons)}
