@@ -1,0 +1,60 @@
+{
+    "db": {
+        "AN ARTIST’S PROGRESS": {
+            "choices": [
+                "KNOW YOUR AUDIENCE",
+                "YOU, CHOIR",
+                "WE, CHOIR (PICK ONCE)",
+                "TELL, DON’T SHOW",
+                "SIGNATURE PIECE"
+            ]
+        },
+        "CARVING OUT THEIR HEART": {},
+        "EMOTIONAL CAPITAL": {},
+        "FANBASE": {},
+        "IT’S NOT WHAT YOU KNOW": {
+            "choices": [
+                "A WORKING ARTIST",
+                "HENCHPERSON",
+                "IMPROVE HENCHPERSON",
+                "AGENT"
+            ]
+        },
+        "LIVE AT THE WITCH TRIALS": {"forcedAt": 4},
+        "ONE STEP AHEAD": {},
+        "PORTRAIT OF THE ARTIST AS A MONSTER": {},
+        "THE GANG": {},
+        "THE GIG": {},
+        "THE GREAT DICTATOR": {},
+        "THE POWER BEHIND THE THRONE": {}
+    },
+    "forced": {
+        "level": 4,
+        "id": "LIVE AT THE WITCH TRIALS"
+    },
+    "positions": {
+        "1": [
+            "SELECT YOUR EMOTION PALETTE",
+            "THE TELL"
+        ],
+        "2": "AN ARTIST’S PROGRESS",
+        "3": "IT’S NOT WHAT YOU KNOW",
+        "4":"FANBASE",
+        "5":"ONE STEP AHEAD",
+        "6":"THE GIG",
+        "7": "AN ARTIST’S PROGRESS",
+        "8": "IT’S NOT WHAT YOU KNOW",
+        "9": "AN ARTIST’S PROGRESS",
+        "10": "AN ARTIST’S PROGRESS",
+        "11":"THE GANG",
+        "12":"EMOTIONAL CAPITAL",
+        "13": "IT’S NOT WHAT YOU KNOW",
+        "14": "PORTRAIT OF THE ARTIST AS A MONSTER",
+        "15": "AN ARTIST’S PROGRESS",
+        "16":"THE POWER BEHIND THE THRONE",
+        "17": "IT’S NOT WHAT YOU KNOW",
+        "18":"CARVING OUT THEIR HEART",
+        "19": "AN ARTIST’S PROGRESS",
+        "20":"THE GREAT DICTATOR"
+    }
+}

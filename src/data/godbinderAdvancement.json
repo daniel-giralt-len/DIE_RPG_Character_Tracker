@@ -1,0 +1,68 @@
+{
+    "db": {
+        "A NEW COVENANT": {},
+        "GODBANKING": {},
+        "GOING ROGUE": {},
+        "HEAD OF RELIGION": {},
+        "HERETIC": {},
+        "HIGHER SCRIPTURE": {},
+        "MYSTERIOUS WAYS": {
+            "choices": [
+                "GODLY COMMANDMENT",
+                "GOOD WORKS",
+                "UNCOVERING SCRIPTURE"
+            ]
+        },
+        "NEW LEVEL IN GOD": {},
+        "YOUR HERESY IS NOTED": {"forcedAt": 12 },
+        "WICKED OR DIVINE": {
+            "choices": [
+                "WICKED",
+                "DIVINE"
+            ]
+        },
+        "GODS": [
+            "THE GOD OF LIGHT",
+            "THE GOD OF EXCESS",
+            "THE FIRE GOD",
+            "THE UNDERWORLD GOD",
+            "THE ELDRITCH GOD",
+            "THE GOD OF THE WILD",
+            "THE FATE GOD",
+            "THE WAR GOD",
+            "THE STORM GOD",
+            "THE TRICKSTER GOD",
+            "THE FORGE GOD",
+            "THE SEA GOD"
+        ]
+    },
+    "forced": {
+        "level": 12,
+        "id": "YOUR HERESY IS NOTED"
+    },
+    "positions": {
+        "1": [
+            "SCRIPTURE",
+            "MIRACLES"
+        ],
+        "2": "NEW LEVEL IN GOD",
+        "3": "NEW LEVEL IN GOD",
+        "4": "GOING ROGUE",
+        "5": "MYSTERIOUS WAYS",
+        "6": "HIGHER SCRIPTURE",
+        "7": "NEW LEVEL IN GOD",
+        "8": "NEW LEVEL IN GOD",
+        "9": "NEW LEVEL IN GOD",
+        "10": "NEW LEVEL IN GOD",
+        "11": "MYSTERIOUS WAYS",
+        "12": "WICKED OR DIVINE",
+        "13": "NEW LEVEL IN GOD",
+        "14": "GODBANKING",
+        "15": "NEW LEVEL IN GOD",
+        "16": "A NEW COVENANT",
+        "17": "NEW LEVEL IN GOD",
+        "18": "HERETIC",
+        "19": "NEW LEVEL IN GOD",
+        "20": "HEAD OF RELIGION"
+    }
+}
