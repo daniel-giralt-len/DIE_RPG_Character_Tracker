@@ -4,6 +4,8 @@ import getTranslator from './translations/getTranslator'
 import AdvancementTree from './Components/AdvancementTree'
 import Configuration from './Components/Configuration'
 import EmotionFlower from './Components/EmotionFlower'
+import CharacterSheet from './Components/CharacterSheet'
+import LevelUpWizard from './Components/LevelUpWizard'
 import { useCookies } from 'react-cookie'
 
 const GlobalStyle = createGlobalStyle`
@@ -24,23 +26,33 @@ const GlobalStyle = createGlobalStyle`
 `;
 
 const App = () => {
-  const [cookies, setCookie] = useCookies(['language', 'sheet'])
-  const {language, sheet} = cookies
+  const [cookies, setCookie] = useCookies(['language', 'character'])
+  const {language, character} = cookies
 
   if(!language) setCookie('language', 'en')
+  if(!character) setCookie('character', {})
   const translate = getTranslator(language)
   return (
     <>
-      <link rel="preconnect" href="https://fonts.googleapis.com"></link>
-      <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="true"></link>
-      <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,200;0,500;0,700;0,900;1,200;1,500;1,700&display=swap" rel="stylesheet"></link>
       <GlobalStyle/>
       <div>
-        <Configuration
-          selectedLanguage={language}
-          onLanguageChange={newLanguage => setCookie('language', newLanguage)}
-          translate={translate}
-        />
+        <header>
+          <Configuration
+            selectedLanguage={language}
+            onLanguageChange={newLanguage => setCookie('language', newLanguage)}
+            translate={translate}
+          />
+        </header>
+        <main>
+          {
+            character.paragon 
+              ? (<CharacterSheet
+                  {...character}
+                
+                />)
+              : (<LevelUpWizard nLevel={0} />)
+          }
+        </main>
       </div>
     </>
   )
