@@ -1,11 +1,33 @@
 {
     "db": {
-        
+        "HARDCORE CHEATING": {},
+        "MY WORLD, MY RULES": {},
+        "ADD STAT": {}
     },
-    "forced": {
-
-    },
+    "forced": {},
     "positions": {
-        
+        "1": [
+            "HARDCORE CHEATING",
+            "MY WORLD, MY RULES"
+        ],
+        "2": "ADD STAT",
+        "3": "ADD STAT",
+        "4": "ADD STAT",
+        "5": "ADD STAT",
+        "6": "ADD STAT",
+        "7": "ADD STAT",
+        "8": "ADD STAT",
+        "9": "ADD STAT",
+        "10": "ADD STAT",
+        "11": "ADD STAT",
+        "12": "ADD STAT",
+        "13": "ADD STAT",
+        "14": "ADD STAT",
+        "15": "ADD STAT",
+        "16": "ADD STAT",
+        "17": "ADD STAT",
+        "18": "ADD STAT",
+        "19": "ADD STAT",
+        "20": "ADD STATN"
     }
 }

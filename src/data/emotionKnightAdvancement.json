@@ -1,5 +1,7 @@
 {
     "db": {
+        "CREATIVE VIOLENCE": {},
+        "YOUR SACRED EMOTION": {},
         "A KNIGHT’S CONFIRMATION": { "forcedAt": 6 },
         "ADVANCE CREATIVE VIOLENCE": {},
         "DUAL WIELD": {},
@@ -12,13 +14,19 @@
         "NEW STANCE: SOCIAL": {},
         "NEW VENTING ABILITY": {},
         "SECOND ACTIVE STANCE": {},
-        "SINGLE-MINDED": {}
+        "SINGLE-MINDED": {},
+        "THE ARCANE WEAPON": {}
     },
     "forced": {
         "level": 8,
         "id": "A KNIGHT’S CONFIRMATION"
     },
     "positions": {
+        "1": [
+            "THE ARCANE WEAPON",
+            "YOUR SACRED EMOTION",
+            "CREATIVE VIOLENCE"
+        ],
         "2": "EMOTION DRAINING",
         "3": "NEW STANCE: COMBAT",
         "4": "ADVANCE CREATIVE VIOLENCE",
