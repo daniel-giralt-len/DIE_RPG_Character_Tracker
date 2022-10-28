@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import SectionTitle from "./SectionTitle"
+import { SectionTitle } from './sharedComponents'
 
 const ListItemWrapper = styled.li`list-style-type: disclosure-closed;`
 

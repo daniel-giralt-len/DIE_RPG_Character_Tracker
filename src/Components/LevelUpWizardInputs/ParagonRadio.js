@@ -1,6 +1,6 @@
 import paragons from '../../data/paragons.json'
 import RadioInput from '../RadioInput'
-import SectionTitle from '../SectionTitle'
+import { SectionTitle } from '../sharedComponents'
 
 const ParagonRadio = ({
     hasError,

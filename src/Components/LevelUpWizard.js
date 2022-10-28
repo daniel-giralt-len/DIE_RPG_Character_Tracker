@@ -8,6 +8,7 @@ import ParagonRadio from './LevelUpWizardInputs/ParagonRadio'
 import SubmitButton from './LevelUpWizardInputs/SubmitButton'
 
 import advancementsDb from '../data/advancementsDb'
+import { MainTitle } from './sharedComponents'
 
 const LevelUpWizard = ({
     nLevel,
@@ -40,6 +41,7 @@ const LevelUpWizard = ({
         }
         maxStatBudget = 2
         return (<section>
+            <MainTitle>{translate('new character')}</MainTitle>
             <NameText
                 name={form.name || ''}
                 onNameChange={onNameChange}

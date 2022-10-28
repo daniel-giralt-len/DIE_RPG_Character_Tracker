@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 import { useState } from "react"
 
-import SectionTitle from "./SectionTitle"
+import { SectionTitle } from './sharedComponents'
 import Stat from "./Stat"
 
 import paragons from '../data/paragons'

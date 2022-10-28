@@ -55,6 +55,7 @@ const Configuration = ({
                 style={{gridArea: 'opener'}}
                 onClick={toggleHidden}
                 selected={!hidden}
+                noBorder
             >
                 ⚙️
             </OpenButton>
