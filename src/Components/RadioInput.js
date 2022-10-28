@@ -1,18 +1,5 @@
 import React from 'react'
-import styled from 'styled-components'
-
-const LabelWrapper = styled.label`
-    border: 0.1em solid black;
-    border-radius: 0.75em;
-    margin: 0.25em;
-    padding: 0.1em;
-    &:hover{
-        background: grey;
-    }
-    ${({selected})=>selected
-        ? 'background-color: #dbdbdb;'
-        : ''}
-`
+import { Button } from './sharedComponents'
 
 const RadioInput = ({
     options,
@@ -33,12 +20,13 @@ const RadioInput = ({
                             onChange={() => onOptionChange(key)}
                             hidden
                         />
-                        <LabelWrapper
+                        <Button
+                            as='label'
                             htmlFor={key}
                             selected={isSelected}
                         >
                             {`${isSelected ? '> ': ''}${translate(key)}`}
-                        </LabelWrapper>
+                        </Button>
                     </React.Fragment>)
             }
         )}            
