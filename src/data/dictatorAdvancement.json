@@ -23,10 +23,14 @@
         "LIVE AT THE WITCH TRIALS": {"forcedAt": 4},
         "ONE STEP AHEAD": {},
         "PORTRAIT OF THE ARTIST AS A MONSTER": {},
+        "SELECT YOUR EMOTION PALETTE": {
+            "selector": "emotion"
+        },
         "THE GANG": {},
         "THE GIG": {},
         "THE GREAT DICTATOR": {},
-        "THE POWER BEHIND THE THRONE": {}
+        "THE POWER BEHIND THE THRONE": {},
+        "THE TELL": {}
     },
     "forced": {
         "level": 4,

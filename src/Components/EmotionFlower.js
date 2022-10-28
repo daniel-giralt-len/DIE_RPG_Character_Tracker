@@ -12,9 +12,10 @@ const FlowerWrapper = styled.div`
     width: ${3*cellSize}em;
 `
 
-const PetalWrapper = styled.div`
+const PetalWrapper = styled.button`
+    text-align: center;
     grid-area: ${({index})=>index};
-    ${({border})=>border
+${({border})=>border
         ? `
 border: 0.2em solid black;
 border-radius: 0.75em;
@@ -22,22 +23,29 @@ margin: 0.25em;
 padding: 0.25em;
 width: ${cellSize}em;`
         : ''}
-    text-align: center;
-    ${({centered})=>centered ? `
+${({centered})=>centered ? `
     display: flex;
     align-items: center;
     justify-content: center;
 ` : ''};
+${({selected})=>selected
+    ? 'background-color: #dbdbdb;'
+    : ''}
 `
 
-const EmotionFlower = ({translate}) => {
-    
+const EmotionFlower = ({translate, onPetalClick, selected}) => {
     return (
         <FlowerWrapper>
             {
                 emotionFlowerPetals
                     .map((parts, i) => 
-                        (<PetalWrapper key={i} index={`l${i}`} border>
+                        (<PetalWrapper
+                            key={i}
+                            index={`l${i}`}
+                            border
+                            onClick={()=>onPetalClick(i)}
+                            selected={selected===i}
+                        >
                             {parts
                                 .map(translate)
                                 .map(s=>`${s},`)

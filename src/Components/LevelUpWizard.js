@@ -16,30 +16,36 @@ const LevelUpWizard = ({
     onFinishWizard,
 }) => {
     let maxStatBudget = 0
+    let levelAdvancements = []
     const [usedStatBudget, setUsedStatBudget] = useState(0)
     const [errors, setErrors] = useState({})
     const [form, setForm] = useState({})
+
+    const handleAdvancementRequirementSelect = (id, option) => console.log(id,option)
+    const onStatsChange = (stats, usedBudget) => {
+        setForm({...form, stats})
+        setUsedStatBudget(usedBudget)
+    }
     const onSubmit = () => {
         const validation = {
             name: !form.name || form.name === '',
             paragon: !form.paragon,
-            stats: usedStatBudget !== maxStatBudget
+            stats: usedStatBudget !== maxStatBudget,
         }
         if(Object.values(validation).reduce((acc,v)=>acc||v,false)){
             return setErrors(validation)
         }
         return onFinishWizard(form)
     }
-    if(form.paragon){
-    }
+
     if(nLevel === 0){ //choose paragon
         const onNameChange = name => setForm({...form, name})
         const onParagonChange = paragon => setForm({...form, paragon})
-        const onStatsChange = (stats, usedBudget) => {
-            setForm({...form, stats})
-            setUsedStatBudget(usedBudget)
-        }
+        
         maxStatBudget = 2
+        if(form.paragon){
+            levelAdvancements = advancementsDb[form.paragon].positions[1]
+        }
         return (<section>
             <MainTitle>{translate('new character')}</MainTitle>
             <NameText
@@ -65,8 +71,9 @@ const LevelUpWizard = ({
                 hasError={errors.stats}
             />)}
             {form.paragon && (<AdvancementList 
-                advancements={advancementsDb[form.paragon].positions[1]}
+                advancements={levelAdvancements}
                 translate={translate}
+                onAdvancementRequirementSelect={handleAdvancementRequirementSelect}
             />)}
             <SubmitButton
                 onSubmit={onSubmit}
