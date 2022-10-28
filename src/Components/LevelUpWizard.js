@@ -36,8 +36,6 @@ const LevelUpWizard = ({
         return onFinishWizard(form)
     }
 
-    console.log(form.advancementsRequirements)
-
     if(nLevel === 1){ //choose paragon
         const onNameChange = name => setForm({...form, name})
         const onParagonChange = paragon => setForm({...form, paragon})

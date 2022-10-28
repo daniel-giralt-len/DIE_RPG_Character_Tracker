@@ -36,6 +36,18 @@ const TreeCell = styled.div`
     }
     margin-right: -${0.325+cellWidth/2}em;
     
+    ${({selectable})=>selectable
+    ? `
+    &:hover{
+        text-decoration: underline;
+    }
+    background: green;
+    `
+    : ''}
+
+    ${({selected})=>selected
+    ? 'background-color: #dbdbdb;'
+    : ''}
 `
 
 const CellContent = styled.div`
@@ -84,25 +96,51 @@ const getBackgroundImage = i => {
     return (isTriangleDown(i) ? bgDown : bgUp)
 }
 
-const AdvancementTree = () => {
-    const cellIds = [
-        [20,     19,     null,   15,     16,     null, ],
-        [18,     17,     12,     13,     14,     null, ],
-        [null,   11,     10,     9,      null,   null, ],
-        [null,   null,   7,      8,      null,   null, ],
-        [null,   6,      5,      2,      3,      4,    ],
-        [null,   null,   null,   1,      null,   null,  ],
-    ]
+const cellIds = [
+    [20,     19,     null,   15,     16,     null, ],
+    [18,     17,     12,     13,     14,     null, ],
+    [null,   11,     10,     9,      null,   null, ],
+    [null,   null,   7,      8,      null,   null, ],
+    [null,   6,      5,      2,      3,      4,    ],
+    [null,   null,   null,   1,      null,   null,  ],
+]
+
+const directionalEdges = {
+    1:[2],
+    2:[3],
+    3:[4],
+    5:[6,7],
+    7:[8],
+    8:[9],
+    9:[10],
+    10:[11,12],
+    12:[13,17],
+    13:[15,14],
+    15:[16],
+    17:[18,19],
+    19:[20]
+}
+
+const AdvancementTree = ({selectedAdvancementsIds}) => {
+    const selectableCells = selectedAdvancementsIds
+        .map(id => directionalEdges[id] || [])
+        .reduce((acc,arr)=>([...acc,...arr]),[])
+        .filter(v=>v)
+    console.log(selectedAdvancementsIds)
+    console.log(selectableCells)
+
     return (<TreeStructure>
         {cellIds.map((row, i)=>(
             <TreeRow key={i}>
-                {row.map((id, i) => (
+                {row.map((id, j) => (
                         id === null 
-                        ? (<TreeCell key={i} />)
+                        ? (<TreeCell key={j} />)
                         : (<TreeCell
-                                key={i}
+                                key={j}
                                 backgroundImg={getBackgroundImage(id)}
                                 isTriangleDown={isTriangleDown(id)}
+                                selected={selectedAdvancementsIds.includes(id)}
+                                selectable={selectableCells.includes(id)}
                             >
                                 <CellContent isTriangleDown={isTriangleDown(id)}>
                                     This is advancement #{id}
@@ -115,5 +153,3 @@ const AdvancementTree = () => {
 }
 
 export default AdvancementTree
-
-

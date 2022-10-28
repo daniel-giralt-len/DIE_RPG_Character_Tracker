@@ -18,7 +18,6 @@ const AdvancementRequirement = ({
         }
     }else{
         if(type==='emotion'){
-            console.log(selected)
             return (<div>
                 {getEmotionPetalText(selected, translate)}
             </div>)

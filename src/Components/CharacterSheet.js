@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-import advancementsDb from '../data/advancementsDb'
+import AdvancementTree from './AdvancementTree'
 
 import StatList from './StatList'
 import AdvancementList from './AdvancementList'
@@ -14,9 +14,13 @@ const CharacterSheet = ({
     stats,
     levels,
     nLevel,
-    translate
+    translate,
+    selectedAdvancementsIds
 }) => {
     return (<section>
+        <AdvancementTree
+          selectedAdvancementsIds={selectedAdvancementsIds}
+        />
             <CharacterTitle>{`${translate(name)}, ${translate(paragon).toUpperCase()}`}</CharacterTitle>
             <StatList
                 stats={stats}

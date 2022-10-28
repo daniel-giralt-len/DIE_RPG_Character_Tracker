@@ -44,7 +44,7 @@ const EmotionFlower = ({translate, onPetalClick, selected}) => {
         <FlowerWrapper>
             {
                 emotionFlowerPetals
-                    .map((parts, i) => 
+                    .map((_, i) => 
                         (<PetalWrapper
                             key={i}
                             index={`l${i}`}

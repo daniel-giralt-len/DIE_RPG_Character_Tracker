@@ -19,7 +19,6 @@ const AdvancementList = ({
     translate
 }) => {
     const levelAdvancements = advancementsDb[paragon].positions[nLevel]
-    console.log(requirements)
     const changeAdvancementRequirement = (id,v) => {
         onAdvancementRequirementSelect({
             ...requirements,

@@ -42,7 +42,12 @@ const App = () => {
   if(!character) setCookie('character', {})
   const translate = getTranslator(language)
 
-  const handleNewCharacter = character => setCookie('character', { ...character, levels: {}, nLevel: 1 })
+  const handleNewCharacter = character => setCookie('character', {
+    ...character,
+    levels: {},
+    nLevel: 1,
+    selectedAdvancementsIds: [1]
+  })
   const handleDeleteCharacter = () => setCookie('character', {})
 
   const isWizardOpen = character.paragon
