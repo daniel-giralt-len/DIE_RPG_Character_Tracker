@@ -35,18 +35,19 @@ const TreeCell = styled.div`
         : ''
     }
     margin-right: -${0.325+cellWidth/2}em;
-    
-    ${({selectable})=>selectable
+
+    ${({selected,selectable})=>selectable && !selected
     ? `
     &:hover{
         text-decoration: underline;
     }
-    background: green;
+    font-style: italic;
     `
     : ''}
 
+
     ${({selected})=>selected
-    ? 'background-color: #dbdbdb;'
+    ? `font-weight: bold; color: #a0a0a0;`
     : ''}
 `
 
@@ -107,7 +108,7 @@ const cellIds = [
 
 const directionalEdges = {
     1:[2],
-    2:[3],
+    2:[3,5],
     3:[4],
     5:[6,7],
     7:[8],
