@@ -1,6 +1,9 @@
 import styled from 'styled-components'
 
-const MainTitle = styled.h1``
+const MainTitle = styled.h1`
+    text-align: center;
+    font-size: 2em;
+`
 
 const SectionTitle = styled.h2`
     margin-top: 0.5em;

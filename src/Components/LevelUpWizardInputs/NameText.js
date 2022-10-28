@@ -10,7 +10,7 @@ const TextInput = styled.textarea`
     padding: 0.2em;
     padding-bottom: 0;
 
-    max-width: 90em;
+    width: 100%; 
     &:focus{
         outline: none;
     }
