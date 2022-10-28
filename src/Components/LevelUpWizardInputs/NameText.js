@@ -14,20 +14,20 @@ const TextInput = styled.textarea`
     &:focus{
         outline: none;
     }
-    ${({isValid})=>isValid ? '':'background: #ffd7d7;'}
+    ${({hasError})=>hasError ? 'background: #ffd7d7;':''}
 `
 const NameText = ({
     name,
     onNameChange,
     translate,
-    isValid
+    hasError
 }) => {
     return (<TextInput
         onChange={e => onNameChange(e.target.value)}
         rows={1}
         value={name}
         placeholder={translate('what is your name?')}
-        isValid={isValid}
+        hasError={hasError}
     />)
 }
 export default NameText

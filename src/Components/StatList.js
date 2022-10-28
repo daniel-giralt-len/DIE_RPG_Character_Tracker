@@ -22,7 +22,7 @@ const StatList = ({
     stats,
     translate,
     maxBudget = 1,
-    isValid = true
+    hasError
 }) => {
     const minBaseStatPoints = 2
     const editableStats = [ 'str', 'dex', 'con', 'int', 'wis', 'cha'
@@ -55,7 +55,7 @@ const StatList = ({
     return (<div>
         <SectionTitle
             blackLabel
-            error={!isValid}
+            error={hasError}
         >
             {
                 editable

@@ -3,14 +3,14 @@ import RadioInput from '../RadioInput'
 import SectionTitle from '../SectionTitle'
 
 const ParagonRadio = ({
-    isValid,
+    hasError,
     selectedParagon,
     onParagonChange,
     translate
 }) => {
     return (
     <div>
-        <SectionTitle error={!isValid}>
+        <SectionTitle error={hasError}>
             {translate('select your paragon:').toUpperCase()}
         </SectionTitle>
         <RadioInput

@@ -16,18 +16,18 @@ const LevelUpWizard = ({
 }) => {
     let maxStatBudget = 0
     const [usedStatBudget, setUsedStatBudget] = useState(0)
-    const [validity, setValidity] = useState({})
+    const [errors, setErrors] = useState({})
     const [form, setForm] = useState({})
     const onSubmit = () => {
-        const isValid = {
-            name: form.name && form.name !== '',
-            paragon: form.paragon,
-            stats: usedStatBudget === maxStatBudget
+        const validation = {
+            name: !form.name || form.name === '',
+            paragon: !form.paragon,
+            stats: usedStatBudget !== maxStatBudget
         }
-        if(Object.values(isValid).reduce((acc,v)=>acc&&v,true)){
-            return onFinishWizard(form)
+        if(Object.values(validation).reduce((acc,v)=>acc||v,false)){
+            return setErrors(validation)
         }
-        setValidity(isValid)
+        return onFinishWizard(form)
     }
     if(form.paragon){
     }
@@ -44,13 +44,13 @@ const LevelUpWizard = ({
                 name={form.name || ''}
                 onNameChange={onNameChange}
                 translate={translate}
-                isValid={validity.name}
+                hasError={errors.name}
             />
             <ParagonRadio
                 selectedParagon={form.paragon}
                 onParagonChange={onParagonChange}
                 translate={translate}
-                isValid={validity.paragon}
+                hasError={errors.paragon}
             />
             {form.paragon && (<StatList
                 editable
@@ -60,7 +60,7 @@ const LevelUpWizard = ({
                 onStatsChange={onStatsChange}
                 paragon={form.paragon}
                 translate={translate}
-                isValid={validity.stats}
+                hasError={errors.stats}
             />)}
             {form.paragon && (<AdvancementList 
                 advancements={advancementsDb[form.paragon].positions[1]}
