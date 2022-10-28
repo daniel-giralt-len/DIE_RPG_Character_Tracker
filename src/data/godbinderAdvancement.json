@@ -2,25 +2,6 @@
     "db": {
         "A NEW COVENANT": {},
         "GODBANKING": {},
-        "GOING ROGUE": {},
-        "HEAD OF RELIGION": {},
-        "HERETIC": {},
-        "HIGHER SCRIPTURE": {},
-        "MYSTERIOUS WAYS": {
-            "choices": [
-                "GODLY COMMANDMENT",
-                "GOOD WORKS",
-                "UNCOVERING SCRIPTURE"
-            ]
-        },
-        "NEW LEVEL IN GOD": {},
-        "YOUR HERESY IS NOTED": {"forcedAt": 12 },
-        "WICKED OR DIVINE": {
-            "choices": [
-                "WICKED",
-                "DIVINE"
-            ]
-        },
         "GODS": [
             "THE GOD OF LIGHT",
             "THE GOD OF EXCESS",
@@ -34,7 +15,28 @@
             "THE TRICKSTER GOD",
             "THE FORGE GOD",
             "THE SEA GOD"
-        ]
+        ],
+        "GOING ROGUE": {},
+        "HEAD OF RELIGION": {},
+        "HERETIC": {},
+        "HIGHER SCRIPTURE": {},
+        "MIRACLES": {},
+        "MYSTERIOUS WAYS": {
+            "choices": [
+                "GODLY COMMANDMENT",
+                "GOOD WORKS",
+                "UNCOVERING SCRIPTURE"
+            ]
+        },
+        "NEW LEVEL IN GOD": {},
+        "SCRIPTURE": {},
+        "WICKED OR DIVINE": {
+            "choices": [
+                "WICKED",
+                "DIVINE"
+            ]
+        },
+        "YOUR HERESY IS NOTED": {"forcedAt": 12 }
     },
     "forced": {
         "level": 12,

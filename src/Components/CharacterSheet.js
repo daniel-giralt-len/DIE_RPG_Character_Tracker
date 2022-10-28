@@ -7,8 +7,15 @@ import AdvancementList from './AdvancementList'
 
 const CharacterTitle = styled.h1``
 
-const CharacterSheet = ({name, paragon, stats, levels, translate}) => {
-    const advancements = advancementsDb[paragon].positions[1]
+const CharacterSheet = ({
+    advancementsRequirements = {},
+    name,
+    paragon,
+    stats,
+    levels,
+    nLevel,
+    translate
+}) => {
     return (<section>
             <CharacterTitle>{`${translate(name)}, ${translate(paragon).toUpperCase()}`}</CharacterTitle>
             <StatList
@@ -17,7 +24,9 @@ const CharacterSheet = ({name, paragon, stats, levels, translate}) => {
                 translate={translate}
             />
             <AdvancementList 
-                advancements={advancements}
+                nLevel={nLevel}
+                paragon={paragon}
+                requirements={advancementsRequirements}
                 translate={translate}
             />
     </section>)

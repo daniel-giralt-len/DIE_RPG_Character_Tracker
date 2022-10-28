@@ -1,11 +1,8 @@
 import { useCookies } from 'react-cookie'
 import styled, { createGlobalStyle } from 'styled-components'
 
-import Stat from './Components/Stat'
 import getTranslator from './translations/getTranslator'
-import AdvancementTree from './Components/AdvancementTree'
 import Configuration from './Components/Configuration'
-import EmotionFlower from './Components/EmotionFlower'
 import CharacterSheet from './Components/CharacterSheet'
 import LevelUpWizard from './Components/LevelUpWizard'
 
@@ -45,8 +42,10 @@ const App = () => {
   if(!character) setCookie('character', {})
   const translate = getTranslator(language)
 
-  const handleNewCharacter = character => setCookie('character', { ...character, levels: {} })
+  const handleNewCharacter = character => setCookie('character', { ...character, levels: {}, nLevel: 1 })
   const handleDeleteCharacter = () => setCookie('character', {})
+
+  const isWizardOpen = character.paragon
 
   return (
     <>
@@ -63,13 +62,13 @@ const App = () => {
           </header>
           <MainWrapper>
             {
-              character.paragon 
+              isWizardOpen 
                 ? (<CharacterSheet
                     {...character}
                     translate={translate}
                   />)
                 : (<LevelUpWizard
-                    nLevel={0}
+                    nLevel={1}
                     translate={translate}
                     onFinishWizard={handleNewCharacter}
                   />)

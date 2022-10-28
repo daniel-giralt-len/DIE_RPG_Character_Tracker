@@ -1,5 +1,6 @@
 import emotionFlowerPetals from '../data/emotionFlower'
 import styled from 'styled-components'
+import getEmotionPetalText from '../data/getEmotionPetalText'
 
 const cellSize = 6
 
@@ -51,9 +52,7 @@ const EmotionFlower = ({translate, onPetalClick, selected}) => {
                             onClick={()=>onPetalClick(i)}
                             selected={selected===i}
                         >
-                            {parts
-                                .map(translate)
-                                .join(', ')
+                            {getEmotionPetalText(i,translate)
                                 .split(' ')
                                 .map(s=>(<div key={s}>{s}</div>))
                             }

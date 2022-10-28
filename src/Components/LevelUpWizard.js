@@ -7,7 +7,6 @@ import NameText from './LevelUpWizardInputs/NameText'
 import ParagonRadio from './LevelUpWizardInputs/ParagonRadio'
 import SubmitButton from './LevelUpWizardInputs/SubmitButton'
 
-import advancementsDb from '../data/advancementsDb'
 import { MainTitle } from './sharedComponents'
 
 const LevelUpWizard = ({
@@ -16,12 +15,11 @@ const LevelUpWizard = ({
     onFinishWizard,
 }) => {
     let maxStatBudget = 0
-    let levelAdvancements = []
     const [usedStatBudget, setUsedStatBudget] = useState(0)
     const [errors, setErrors] = useState({})
     const [form, setForm] = useState({})
 
-    const handleAdvancementRequirementSelect = (id, option) => console.log(id,option)
+    const handleAdvancementRequirementSelect = advancementsRequirements => setForm({...form, advancementsRequirements})
     const onStatsChange = (stats, usedBudget) => {
         setForm({...form, stats})
         setUsedStatBudget(usedBudget)
@@ -38,14 +36,13 @@ const LevelUpWizard = ({
         return onFinishWizard(form)
     }
 
-    if(nLevel === 0){ //choose paragon
+    console.log(form.advancementsRequirements)
+
+    if(nLevel === 1){ //choose paragon
         const onNameChange = name => setForm({...form, name})
         const onParagonChange = paragon => setForm({...form, paragon})
         
         maxStatBudget = 2
-        if(form.paragon){
-            levelAdvancements = advancementsDb[form.paragon].positions[1]
-        }
         return (<section>
             <MainTitle>{translate('new character')}</MainTitle>
             <NameText
@@ -70,10 +67,13 @@ const LevelUpWizard = ({
                 translate={translate}
                 hasError={errors.stats}
             />)}
-            {form.paragon && (<AdvancementList 
-                advancements={levelAdvancements}
-                translate={translate}
+            {form.paragon && (<AdvancementList
+                editable
+                nLevel={nLevel}
                 onAdvancementRequirementSelect={handleAdvancementRequirementSelect}
+                paragon={form.paragon}
+                requirements={form.advancementsRequirements}
+                translate={translate}
             />)}
             <SubmitButton
                 onSubmit={onSubmit}
