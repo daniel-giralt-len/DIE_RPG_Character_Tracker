@@ -31,13 +31,23 @@ const RestSection = styled.div`
 
 const Configuration = ({
     selectedLanguage,
+    onDeleteCharacter,
     onLanguageChange,
     translate
 }) => {
     const [hidden, setHidden] = useState(true)
+    const [aboutToDelete, setAboutToDelete] = useState(false)
     const languages = Object.keys(webTranslations['*'])
 
     const toggleHidden = () => setHidden(!hidden)
+    const handleCharacterDelete = () => {
+        if(aboutToDelete){
+            setAboutToDelete(false)
+            setHidden(true)
+            return onDeleteCharacter()
+        }
+        setAboutToDelete(true)
+    }
 
     return (
         <ConfigurationWrapper closed={hidden}>
@@ -57,7 +67,9 @@ const Configuration = ({
                 />       
             </LanguagesSection>
             <RestSection hidden={hidden}>
-                Rest of config
+                <Button onClick={handleCharacterDelete}>
+                    {translate(aboutToDelete ? 'are you sure?' : 'delete character')}
+                </Button>
             </RestSection>
         </ConfigurationWrapper>
     )

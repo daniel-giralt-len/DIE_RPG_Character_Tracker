@@ -46,6 +46,7 @@ const App = () => {
   const translate = getTranslator(language)
 
   const handleNewCharacter = character => setCookie('character', { ...character, levels: {} })
+  const handleDeleteCharacter = () => setCookie('character', {})
 
   return (
     <>
@@ -55,6 +56,7 @@ const App = () => {
           <header>
             <Configuration
               selectedLanguage={language}
+              onDeleteCharacter={handleDeleteCharacter}
               onLanguageChange={newLanguage => setCookie('language', newLanguage)}
               translate={translate}
             />
