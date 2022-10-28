@@ -7,8 +7,26 @@ import RadioInput from './RadioInput'
 import webTranslations from '../translations/translations'
 
 const ConfigurationWrapper = styled.div`
+    ${({closed})=>closed ? '' : `display: grid;
+    grid-template-columns: 3fr 1fr;
+    grid-template-rows: auto auto;
+    grid-template-areas:
+        "languages opener"
+        "rest rest";`}
+`
+
+const OpenButton = styled(Button)`
+    grid-area: opener;
+`
+const LanguagesSection = styled.div`
+    grid-area: languages;
     display: flex;
-    flex-direction: column
+    align-items: center;
+    ${({hidden})=>hidden ? 'display: none;' : ''}
+`
+const RestSection = styled.div`
+    grid-area: rest;
+    ${({hidden})=>hidden ? 'display: none;' : ''}
 `
 
 const Configuration = ({
@@ -22,20 +40,25 @@ const Configuration = ({
     const toggleHidden = () => setHidden(!hidden)
 
     return (
-        <ConfigurationWrapper>
-            <Button onClick={toggleHidden} selected={!hidden}>
+        <ConfigurationWrapper closed={hidden}>
+            <OpenButton
+                style={{gridArea: 'opener'}}
+                onClick={toggleHidden}
+                selected={!hidden}
+            >
                 ⚙️
-            </Button>
-            {
-                !hidden && (
-                    <RadioInput 
-                        options={languages}
-                        onOptionChange={onLanguageChange}
-                        selectedOption={selectedLanguage}
-                        translate={translate}
-                    />       
-                )
-            }
+            </OpenButton>
+            <LanguagesSection hidden={hidden}>
+                <RadioInput 
+                    options={languages}
+                    onOptionChange={onLanguageChange}
+                    selectedOption={selectedLanguage}
+                    translate={translate}
+                />       
+            </LanguagesSection>
+            <RestSection hidden={hidden}>
+                Rest of config
+            </RestSection>
         </ConfigurationWrapper>
     )
 }
