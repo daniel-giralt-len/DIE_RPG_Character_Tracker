@@ -1,7 +1,7 @@
 import emotionFlowerPetals from '../data/emotionFlower'
 import styled from 'styled-components'
 
-const cellSize = 5.5
+const cellSize = 6
 
 const FlowerWrapper = styled.div`
     display: grid;
@@ -13,24 +13,29 @@ const FlowerWrapper = styled.div`
 `
 
 const PetalWrapper = styled.button`
-    text-align: center;
     grid-area: ${({index})=>index};
-${({border})=>border
-        ? `
+    
+    ${({clickable})=>clickable
+            ? `
 border: 0.2em solid black;
 border-radius: 0.75em;
 margin: 0.25em;
 padding: 0.25em;
-width: ${cellSize}em;`
-        : ''}
-${({centered})=>centered ? `
-    display: flex;
-    align-items: center;
-    justify-content: center;
-` : ''};
-${({selected})=>selected
-    ? 'background-color: #dbdbdb;'
-    : ''}
+width: ${cellSize}em;
+&:hover{
+    background: grey;
+}
+    ` : 'border: 0;'}
+
+    ${({centered})=>centered ? `
+display: flex;
+align-items: center;
+justify-content: center;
+    ` : ''};
+
+    ${({selected})=>selected
+        ? 'background-color: #dbdbdb;'
+        : 'background-color: white;'}
 `
 
 const EmotionFlower = ({translate, onPetalClick, selected}) => {
@@ -42,13 +47,14 @@ const EmotionFlower = ({translate, onPetalClick, selected}) => {
                         (<PetalWrapper
                             key={i}
                             index={`l${i}`}
-                            border
+                            clickable
                             onClick={()=>onPetalClick(i)}
                             selected={selected===i}
                         >
                             {parts
                                 .map(translate)
-                                .map(s=>`${s},`)
+                                .join(', ')
+                                .split(' ')
                                 .map(s=>(<div key={s}>{s}</div>))
                             }
                         </PetalWrapper>)
