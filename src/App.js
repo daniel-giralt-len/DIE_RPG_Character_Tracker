@@ -1,10 +1,12 @@
+import { useEffect, useState } from 'react'
 import { useCookies } from 'react-cookie'
 import styled, { createGlobalStyle } from 'styled-components'
 
-import getTranslator from './translations/getTranslator'
 import Configuration from './Components/Configuration'
 import CharacterSheet from './Components/CharacterSheet'
 import LevelUpWizard from './Components/LevelUpWizard'
+import accumulateLevelData from './data/accumulateLevelData'
+import getTranslator from './translations/getTranslator'
 
 const GlobalStyle = createGlobalStyle`
   @font-face {
@@ -37,18 +39,27 @@ const MainWrapper = styled.main`
 const App = () => {
   const [cookies, setCookie] = useCookies(['language', 'character'])
   const {language, character} = cookies
+  const [selectedLevel, setSelectedLevel] = useState(1)
+  const [accumulatedLevelData, setAccumulatedLevelData] = useState(accumulateLevelData(character, selectedLevel))
 
   if(!language) setCookie('language', 'en')
   if(!character) setCookie('character', {})
   const translate = getTranslator(language)
 
-  const handleNewCharacter = character => setCookie('character', {
-    ...character,
-    levels: {},
-    nLevel: 1,
-    selectedAdvancementsIds: [1]
-  })
+  const handleNewCharacter = level1Data => {
+    setCookie('character', {
+      levels: [
+        level1Data
+      ],
+      nLevel: 1,
+      selectedAdvancementsIds: [1]
+    })
+  }
   const handleDeleteCharacter = () => setCookie('character', {})
+
+  useEffect(() => {
+
+  }, [character])
 
   const isWizardOpen = character.paragon
 
