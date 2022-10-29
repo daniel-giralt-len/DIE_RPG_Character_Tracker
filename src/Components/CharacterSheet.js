@@ -20,7 +20,7 @@ const CharacterSheet = ({
     return (<section>
         <AdvancementTree
             paragon={paragon}
-            selectedAdvancementsIds={selectedAdvancementsIds}
+            selectedAdvancementsIds={[1,2,5]}
             translate={translate}
         />
             <CharacterTitle>{`${translate(name)}, ${translate(paragon).toUpperCase()}`}</CharacterTitle>

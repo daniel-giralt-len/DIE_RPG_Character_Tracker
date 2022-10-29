@@ -20,8 +20,6 @@ const TreeRow = styled.div`
 `
 
 const TreeCell = styled.div`
-    grid-area: ${({area})=>area};
-
     background: url(${({backgroundImg})=>backgroundImg});
     background-size: cover;
 
@@ -49,7 +47,7 @@ const TreeCell = styled.div`
 
 
     ${({selected})=>selected
-    ? `font-weight: bold; color: #a0a0a0;`
+    ? `color: #fff;`
     : ''}
 `
 
@@ -93,9 +91,14 @@ const isTriangleDown = i => {
     return x % 2 === ((y % 2 === 0) ? 0 : 1)
 }
 
-const getBackgroundImage = i => {
+const getBackgroundImage = (i,selected) => {
     const bgUp = 'advancementUp.png'
     const bgDown = 'advancementDown.png'
+    const bgSelectedUp = 'advancementSelectedUp.png'
+    const bgSelectedDown = 'advancementSelectedDown.png'
+    if(selected){
+        return (isTriangleDown(i) ? bgSelectedDown : bgSelectedUp)
+    }
     return (isTriangleDown(i) ? bgDown : bgUp)
 }
 
@@ -138,21 +141,25 @@ const AdvancementTree = ({paragon, selectedAdvancementsIds, translate}) => {
     return (<TreeStructure>
         {cellIds.map((row, i)=>(
             <TreeRow key={i}>
-                {row.map((id, j) => (
-                        id === null 
-                        ? (<TreeCell key={j} />)
-                        : (<TreeCell
-                                key={j}
-                                backgroundImg={getBackgroundImage(id)}
-                                isTriangleDown={isTriangleDown(id)}
-                                selected={selectedAdvancementsIds.includes(id)}
-                                selectable={selectableCells.includes(id)}
-                            >
-                                <CellContent isTriangleDown={isTriangleDown(id)}>
-                                    {id === 1 ? translate('start').toUpperCase() : advancementNames[id]}
-                                </CellContent>
-                            </TreeCell>)
-                ))}
+                {row.map((id, j) => {
+                    if(id === null){
+                        return (<TreeCell key={j} />)
+                    }
+                    const selected = selectedAdvancementsIds.includes(id)
+                    return(
+                        <TreeCell
+                            key={j}
+                            backgroundImg={getBackgroundImage(id, selected)}
+                            isTriangleDown={isTriangleDown(id)}
+                            selected={selected}
+                            selectable={selectableCells.includes(id)}
+                        >
+                            <CellContent isTriangleDown={isTriangleDown(id)}>
+                                {id === 1 ? translate('start').toUpperCase() : advancementNames[id]}
+                            </CellContent>
+                        </TreeCell>
+                )
+                })}
             </TreeRow>
         ))}
     </TreeStructure>)
