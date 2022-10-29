@@ -1,6 +1,7 @@
 {
     "db": {
         "EQUIPMENT": {
+            "selector": "choices",
             "choices": [
                 {"id": "Two-handed hammer, heavy protection (Defence 1)", "defence": 1},
                 "Quarterstaff (Special: recover 1 Guard), robes or loincloth",
@@ -8,7 +9,7 @@
             ]
         },
         "YOUR LOOK": {
-            "defence": 0,
+            "selector": "choices",
             "choices": [
                 "Heavy-metal holy crusader, looking for trouble",
                 "Beatific holy seer, looking for peace",
@@ -39,6 +40,7 @@
         "HIGHER SCRIPTURE": {},
         "MIRACLES": {},
         "MYSTERIOUS WAYS": {
+            "selector": "choices",
             "choices": [
                 "GODLY COMMANDMENT",
                 "GOOD WORKS",
@@ -48,6 +50,7 @@
         "NEW LEVEL IN GOD": {},
         "SCRIPTURE": {},
         "WICKED OR DIVINE": {
+            "selector": "choices",
             "choices": [
                 "WICKED",
                 "DIVINE"

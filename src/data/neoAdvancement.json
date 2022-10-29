@@ -1,6 +1,7 @@
 {
     "db": {
         "EQUIPMENT": {
+            "selector": "choices",
             "choices": [
                 "A dagger (or any pointy thing which stabs)",
                 "Another close weapon (short sword, a second dagger, or something else)",
@@ -8,7 +9,7 @@
             ]
         },
         "YOUR LOOK": {
-            "defence": 0,
+            "selector": "choices",
             "choices": [
                 "Black leather, studs and chrome, white leather, bleach and catsuits",
                 "Billowing black cloak and sinister scarlet eyes",

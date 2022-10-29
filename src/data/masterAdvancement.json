@@ -1,6 +1,7 @@
 {
     "db": {
         "EQUIPMENT": {
+            "selector": "choices",
             "choices": [
                 "Quarterstaff. Special: recover 1 Guard.",
                 "An elegant handgun. Special: if a hit Wounds, it does 2 Wounds against unarmoured foes.",
@@ -9,7 +10,7 @@
             ]
         },
         "YOUR LOOK": {
-            "defence": 0,
+            "selector": "choices",
             "choices": [
                 "Wizard robes straight out of a 1980s kids fantasy cartoon.",
                 "Killer suits straight off a 1980s corporate bad guy.",

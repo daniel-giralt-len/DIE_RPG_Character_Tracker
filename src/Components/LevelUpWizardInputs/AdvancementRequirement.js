@@ -1,8 +1,11 @@
-import EmotionFlower from '../EmotionFlower'
+import EmotionFlower from '../AdvancementInputs/EmotionFlower'
+import ChoicesList from '../AdvancementInputs/ChoicesList'
 import getEmotionPetalText from '../../data/getEmotionPetalText'
 
 const AdvancementRequirement = ({
+    choices = [],
     editable,
+    nChoices,
     onAdvancementRequirementSelect,
     selected,
     type,
@@ -12,6 +15,14 @@ const AdvancementRequirement = ({
         if(type==='emotion'){
             return (<EmotionFlower
                 onPetalClick={onAdvancementRequirementSelect}
+                translate={translate}
+                selected={selected}
+            />)
+        }
+        if(type==='choices'){
+            return (<ChoicesList
+                choices={choices}
+                nChoices={nChoices}
                 translate={translate}
                 selected={selected}
             />)

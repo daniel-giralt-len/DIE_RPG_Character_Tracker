@@ -1,6 +1,7 @@
 {
     "db": {
         "EQUIPMENT": {
+            "selector": "choices",
             "choices": [
                 "You’ve got an uncanny danger sense.",
                 "Your scarred flesh is incredibly resistant to pain.",
@@ -9,7 +10,7 @@
             ]
         },
         "YOUR LOOK": {
-            "defence": 1,
+            "selector": "choices",
             "choices": [
                 "Worn leather, a long cloak and a scowl.",
                 "Gladiator gear, all skin, spikes and black leather.",

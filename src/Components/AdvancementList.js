@@ -1,5 +1,7 @@
 import styled from 'styled-components'
 
+import paragons from '../data/paragons.json'
+
 import { getAdvancementsData } from '../data/advancementsDb'
 
 import { SectionTitle } from './sharedComponents'
@@ -36,16 +38,21 @@ const AdvancementList = ({
                 {`${translate('advancements').toUpperCase()}`}
             </SectionTitle>
             <ul>
-                {levelAdvancements.map(({id, selector}) => {
+                {levelAdvancements.map(({id, selector, ...rest}) => {
                     console.log(hasErrors.find(e=>id===e.id))
+                    let title = translate(id)
+                    if(id==='EQUIPMENT'){
+                        title += ` (${translate('defence')} ${paragons[paragon].baseDefence})`
+                    }
                     return (<ListItemWrapper key={id} hasError={hasErrors.find(e=>id===e.id)}>
-                                <div>{translate(id)}</div>
+                                <div>{title}</div>
                                 {selector && (<AdvancementRequirement
                                     editable={editable}
                                     onAdvancementRequirementSelect={v => changeAdvancementRequirement(id, v)}
                                     type={selector}
                                     selected={requirements[id]}
                                     translate={translate}
+                                    {...rest}
                                 />)}
                             </ListItemWrapper>)
                     })                

@@ -22,7 +22,6 @@ background: black;
     }}
 `
 
-
 const Button = styled.button`
     ${({noBorder})=>noBorder
         ? 'border: 0;'
@@ -38,8 +37,26 @@ const Button = styled.button`
         : ''}
 `
 
+const TextInput = styled.textarea`
+    resize: none;
+    overflow-y: clip;
+
+    border: none;
+    border-bottom: 0.1em solid black;
+    margin: 0.25em;
+    padding: 0.2em;
+    padding-bottom: 0;
+
+    width: 100%; 
+    &:focus{
+        outline: none;
+    }
+    ${({hasError})=>hasError ? 'background: #ffd7d7;':''}
+`
+
 export {
     Button,
     MainTitle,
-    SectionTitle
+    SectionTitle,
+    TextInput
 }

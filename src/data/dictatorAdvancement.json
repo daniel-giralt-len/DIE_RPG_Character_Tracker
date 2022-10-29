@@ -1,6 +1,7 @@
 {
     "db": {
         "EQUIPMENT": {
+            "selector": "choices",
             "choices": [
                 "A dagger and a ranged weapon. Bow, pistol or something else.",
                 "A rapier. Use Dex instead of Str for its dice pool. Special: recover one Guard.",
@@ -8,7 +9,7 @@
             ]
         },
         "YOUR LOOK": {
-            "defence": 0,
+            "selector": "choices",
             "choices": [
                 "Austere, severe angular outfits",
                 "Flamboyant, straight out of a stage show",
@@ -17,6 +18,7 @@
             ]
         },
         "AN ARTIST’S PROGRESS": {
+            "selector": "choices",
             "choices": [
                 "KNOW YOUR AUDIENCE",
                 "YOU, CHOIR",
@@ -29,6 +31,7 @@
         "EMOTIONAL CAPITAL": {},
         "FANBASE": {},
         "IT’S NOT WHAT YOU KNOW": {
+            "selector": "choices",
             "choices": [
                 "A WORKING ARTIST",
                 "HENCHPERSON",

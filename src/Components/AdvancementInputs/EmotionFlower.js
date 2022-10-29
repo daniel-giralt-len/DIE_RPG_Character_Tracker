@@ -1,6 +1,6 @@
-import emotionFlowerPetals from '../data/emotionFlower'
+import emotionFlowerPetals from '../../data/emotionFlower'
 import styled from 'styled-components'
-import getEmotionPetalText from '../data/getEmotionPetalText'
+import getEmotionPetalText from '../../data/getEmotionPetalText'
 
 const cellSize = 6
 

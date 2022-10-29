@@ -1,21 +1,6 @@
 import styled from 'styled-components'
+import { TextInput } from '../sharedComponents'
 
-const TextInput = styled.textarea`
-    resize: none;
-    overflow-y: clip;
-
-    border: none;
-    border-bottom: 0.1em solid black;
-    margin: 0.25em;
-    padding: 0.2em;
-    padding-bottom: 0;
-
-    width: 100%; 
-    &:focus{
-        outline: none;
-    }
-    ${({hasError})=>hasError ? 'background: #ffd7d7;':''}
-`
 const NameText = ({
     name,
     onNameChange,

@@ -1,6 +1,7 @@
 {
     "db": {
         "EQUIPMENT": {
+            "selector": "choices",
             "choices": [
                 "A fine noble longsword. Get 1 Advantage talking with regal sorts (and those impressed by them).",
                 "A rapier. Use Dex instead of Str for its pool. Special: Recover one Guard.",
@@ -12,7 +13,7 @@
             "nChoices": 2
         },
         "YOUR LOOK": {
-            "defence": 1,
+            "selector": "choices",
             "choices": [
                 "Light fabrics, exposed skin, a big grin",
                 "Black leather, a deck of cards and fast fingers",
