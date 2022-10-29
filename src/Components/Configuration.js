@@ -54,6 +54,11 @@ const Configuration = ({
         setAboutToDelete(true)
     }
 
+    const handleLevelUp = () => {
+        setHidden(true)
+        onLevelUp()
+    }
+
     return (
         <ConfigurationWrapper closed={hidden}>
             <OpenButton
@@ -85,7 +90,7 @@ const Configuration = ({
                     <Button onClick={handleCharacterDelete}>
                         {translate(aboutToDelete ? 'are you sure?' : 'delete character')}
                     </Button>
-                    <Button onClick={onLevelUp}>
+                    <Button onClick={handleLevelUp}>
                         {translate('level up')}
                     </Button>
                 </div>
