@@ -50,24 +50,38 @@ const App = () => {
 
   const translate = getTranslator(language)
 
-  const handleNewCharacter = level1Data => {
-    setCookie('character', {
+  const handleNewCharacter = levelData => {
+    const newCharacter = {
       levels: [
-        level1Data
+        ...character.levels||[],
+        levelData
       ],
-      nLevel: 1,
+      nLevel: wizardLevel,
       selectedAdvancementsIds: [1]
-    })
+    }
+    const newLevel = 1
+    setCookie('character', newCharacter)
+    setSelectedLevel(newLevel)
+    setAccumulatedLevelData(accumulateLevelData(newCharacter, newLevel))
+
+    setWizardOpen(false)
   }
-  const handleDeleteCharacter = () => setCookie('character', {})
-  const handleLevelUp = () => {
+  const handleDeleteCharacter = () => {
+    setCookie('character', {})
+    setWizardLevel(1)
+    setWizardOpen(true)
+  }
+  const handleOpenWizard = () => {
     setWizardLevel(character.nLevel + 1)
     setWizardOpen(true)
   }
+  const handleLevelSelect = n => setSelectedLevel(n)
 
   useEffect(() => {
     setAccumulatedLevelData(accumulateLevelData(character, selectedLevel))
   }, [character, selectedLevel])
+
+  console.log(accumulatedLevelData)
 
   return (
     <>
@@ -76,10 +90,12 @@ const App = () => {
         <Centerer>
           <header>
             <Configuration
+              characterLevel={character.nLevel || 0}
               selectedLanguage={language}
               onDeleteCharacter={handleDeleteCharacter}
               onLanguageChange={newLanguage => setCookie('language', newLanguage)}
-              onLevelUp={handleLevelUp}
+              onLevelUp={handleOpenWizard}
+              onLevelSelect={handleLevelSelect}
               translate={translate}
             />
           </header>

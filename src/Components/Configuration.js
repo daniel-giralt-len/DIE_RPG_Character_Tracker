@@ -32,10 +32,12 @@ const RestSection = styled.div`
 `
 
 const Configuration = ({
+    characterLevel,
     selectedLanguage,
     onDeleteCharacter,
     onLanguageChange,
     onLevelUp,
+    onLevelSelect,
     translate
 }) => {
     const [hidden, setHidden] = useState(true)
@@ -72,12 +74,22 @@ const Configuration = ({
                 />       
             </LanguagesSection>
             <RestSection hidden={hidden}>
-                <Button onClick={handleCharacterDelete}>
-                    {translate(aboutToDelete ? 'are you sure?' : 'delete character')}
-                </Button>
-                <Button onClick={onLevelUp}>
-                    {translate('level up')}
-                </Button>
+                <div>
+                    <span>{translate('lvl')}:</span>
+                    {Array(characterLevel)
+                        .fill().map((_,i) => (<Button key={i} onClick={i => onLevelSelect(i+1)}>
+                            {i+1}
+                        </Button>))
+                    }
+                </div>
+                <div>
+                    <Button onClick={handleCharacterDelete}>
+                        {translate(aboutToDelete ? 'are you sure?' : 'delete character')}
+                    </Button>
+                    <Button onClick={onLevelUp}>
+                        {translate('level up')}
+                    </Button>
+                </div>
             </RestSection>
         </ConfigurationWrapper>
     )

@@ -16,7 +16,7 @@ const CharacterSheet = ({
     selectedAdvancementsIds
 }) => {
     return (<section>
-            <CharacterTitle>{`${translate(name)}, ${translate(paragon).toUpperCase()}`}</CharacterTitle>
+            <CharacterTitle>{`${name}, ${translate(paragon).toUpperCase()}`}</CharacterTitle>
             <StatList
                 stats={stats}
                 paragon={paragon}
