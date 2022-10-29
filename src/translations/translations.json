@@ -52,7 +52,8 @@
         "pick your stats": "Pick your stats",
         "delete character": "Delete character",
         "are you sure?": "Are you sure?",
-        "new character": "New Character"
+        "new character": "New Character",
+        "start": "Start"
     },
     "es": {
         "str":"Frz",
@@ -102,7 +103,8 @@
         "pick your stats": "Pick your stats",
         "delete character": "Delete character",
         "are you sure?": "Are you sure?",
-        "new character": "New Character"
+        "new character": "New Character",
+        "start": "Start"
     },
     "ca": {
         "str":"Frç",
@@ -152,6 +154,7 @@
         "pick your stats": "Pick your stats",
         "delete character": "Delete character",
         "are you sure?": "Are you sure?",
-        "new character": "New Character"
+        "new character": "New Character",
+        "start": "Start"
     }
 }

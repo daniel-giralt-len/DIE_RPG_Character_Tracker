@@ -1,5 +1,7 @@
 import styled from 'styled-components'
 
+import advancementsDb from '../data/advancementsDb'
+
 const getTriangleHeight = a =>  a * Math.sqrt(3) / 2
 
 const cellWidth = 10
@@ -122,7 +124,10 @@ const directionalEdges = {
     19:[20]
 }
 
-const AdvancementTree = ({selectedAdvancementsIds}) => {
+const AdvancementTree = ({paragon, selectedAdvancementsIds, translate}) => {
+
+    const advancementNames = advancementsDb[paragon].positions
+
     const selectableCells = selectedAdvancementsIds
         .map(id => directionalEdges[id] || [])
         .reduce((acc,arr)=>([...acc,...arr]),[])
@@ -144,7 +149,7 @@ const AdvancementTree = ({selectedAdvancementsIds}) => {
                                 selectable={selectableCells.includes(id)}
                             >
                                 <CellContent isTriangleDown={isTriangleDown(id)}>
-                                    This is advancement #{id}
+                                    {id === 1 ? translate('start').toUpperCase() : advancementNames[id]}
                                 </CellContent>
                             </TreeCell>)
                 ))}

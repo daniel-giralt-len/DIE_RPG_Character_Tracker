@@ -19,7 +19,9 @@ const CharacterSheet = ({
 }) => {
     return (<section>
         <AdvancementTree
-          selectedAdvancementsIds={selectedAdvancementsIds}
+            paragon={paragon}
+            selectedAdvancementsIds={selectedAdvancementsIds}
+            translate={translate}
         />
             <CharacterTitle>{`${translate(name)}, ${translate(paragon).toUpperCase()}`}</CharacterTitle>
             <StatList
