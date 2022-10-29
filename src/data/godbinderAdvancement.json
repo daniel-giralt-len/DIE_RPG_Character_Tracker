@@ -1,5 +1,22 @@
 {
     "db": {
+        "EQUIPMENT": {
+            "choices": [
+                {"id": "Two-handed hammer, heavy protection (Defence 1)", "defence": 1},
+                "Quarterstaff (Special: recover 1 Guard), robes or loincloth",
+                "Worn leather gear, dagger or knuckledusters, a set of knives in a carefully concealed hiding place"
+            ]
+        },
+        "YOUR LOOK": {
+            "defence": 0,
+            "choices": [
+                "Heavy-metal holy crusader, looking for trouble",
+                "Beatific holy seer, looking for peace",
+                "Wild tattoos, frenzied eyes, looking for drugs",
+                "Urbane street magician, looking for the gold in someone's pocket",
+                "OTHER"
+            ]
+        },
         "A NEW COVENANT": {},
         "GODBANKING": {},
         "GODS": [
@@ -44,6 +61,8 @@
     },
     "positions": {
         "1": [
+            "EQUIPMENT",
+            "YOUR LOOK",
             "SCRIPTURE",
             "MIRACLES"
         ],

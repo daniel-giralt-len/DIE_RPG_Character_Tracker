@@ -21,26 +21,19 @@ const InputWrapper = styled.input`
     padding: 0;
     border: 0;
     background: none;
-    ::-webkit-inner-spin-button{
-        -webkit-appearance: none; 
-        margin: 0; 
-    }
-    ::-webkit-outer-spin-button{
-        -webkit-appearance: none; 
-        margin: 0; 
-    }
     text-align: center;
-    width: 1em;
+    width: 2em;
+    padding-left: 0.75em;
     ${({disabled})=> disabled?'color: gray;':''}
     ${({border})=> {
         if(border.startsWith('triangleInverted')){
             return 'padding-bottom: 0.5em;'
         }else if (border.startsWith('triangle')){
-            return 'padding-top: 0.3em;'
+            return 'padding-top: 0.4em;'
         }else if (border.startsWith('d10Face')){
             return 'padding-top: 0.3em;'
         }else if (border.startsWith('pentagon')){
-            return 'padding-top: 0.1em;'
+            return 'padding-top: 0.25em;'
         }
     }}
 `

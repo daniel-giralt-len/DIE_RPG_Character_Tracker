@@ -1,5 +1,25 @@
 {
     "db": {
+        "EQUIPMENT": {
+            "choices": [
+                "A fine noble longsword. Get 1 Advantage talking with regal sorts (and those impressed by them).",
+                "A rapier. Use Dex instead of Str for its pool. Special: Recover one Guard.",
+                "Concealed throwing weapons. Knives, throwing stars, etc.",
+                "A pistol or other ranged weapon.",
+                "A cutlass. Get 1 Advantage talking to underworld sorts and impressionable romantics.",
+                "Martial arts. May use Dex instead of Str for its pool while fighting with no weapons."
+            ],
+            "nChoices": 2
+        },
+        "YOUR LOOK": {
+            "defence": 1,
+            "choices": [
+                "Light fabrics, exposed skin, a big grin",
+                "Black leather, a deck of cards and fast fingers",
+                "A long cloak balanced between elegantly-wasted and scruffy",
+                "OTHER"
+            ]
+        },
         "A STUPID PLAN, BUT IT JUST MIGHT WORK": {},
         "A TRIP TO CLOWNSCHOOL": {},
         "CLEAN SLATE": {},
@@ -21,6 +41,8 @@
     },
     "positions": {
         "1": [
+            "EQUIPMENT",
+            "YOUR LOOK",
             "YOUR TRADE",
             "FLUKES",
             "IF ALL ELSE FAILS"

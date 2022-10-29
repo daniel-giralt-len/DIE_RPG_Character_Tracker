@@ -1,5 +1,22 @@
 {
     "db": {
+        "EQUIPMENT": {
+            "choices": [
+                "Quarterstaff. Special: recover 1 Guard.",
+                "An elegant handgun. Special: if a hit Wounds, it does 2 Wounds against unarmoured foes.",
+                "A huge tome. Advantage on tasks involving research, heavy enough to be an improvised club.",
+                "OTHER"
+            ]
+        },
+        "YOUR LOOK": {
+            "defence": 0,
+            "choices": [
+                "Wizard robes straight out of a 1980s kids fantasy cartoon.",
+                "Killer suits straight off a 1980s corporate bad guy.",
+                "Fetish-wear straight out of a 1990s vampire LARP",
+                "OTHER"
+            ]
+        },
         "HARDCORE CHEATING": {},
         "MY WORLD, MY RULES": {},
         "ADD STAT": {}
@@ -7,6 +24,8 @@
     "forced": {},
     "positions": {
         "1": [
+            "EQUIPMENT",
+            "YOUR LOOK",
             "HARDCORE CHEATING",
             "MY WORLD, MY RULES"
         ],

@@ -1,5 +1,22 @@
 {
     "db": {
+        "EQUIPMENT": {
+            "choices": [
+                "You’ve got an uncanny danger sense.",
+                "Your scarred flesh is incredibly resistant to pain.",
+                "You have the finest armour, and keep it in good condition.",
+                "OTHER"
+            ]
+        },
+        "YOUR LOOK": {
+            "defence": 1,
+            "choices": [
+                "Worn leather, a long cloak and a scowl.",
+                "Gladiator gear, all skin, spikes and black leather.",
+                "Covered head to foot, with a full helm showing only your eyes.",
+                "OTHER"
+            ]
+        },
         "CREATIVE VIOLENCE": {},
         "YOUR SACRED EMOTION": {},
         "A KNIGHT’S CONFIRMATION": { "forcedAt": 6 },
@@ -23,6 +40,8 @@
     },
     "positions": {
         "1": [
+            "EQUIPMENT",
+            "YOUR LOOK",
             "THE ARCANE WEAPON",
             "YOUR SACRED EMOTION",
             "CREATIVE VIOLENCE"

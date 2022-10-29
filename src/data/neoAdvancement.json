@@ -1,5 +1,21 @@
 {
     "db": {
+        "EQUIPMENT": {
+            "choices": [
+                "A dagger (or any pointy thing which stabs)",
+                "Another close weapon (short sword, a second dagger, or something else)",
+                "A ranged weapon (pistol, a rifle, or something else)"
+            ]
+        },
+        "YOUR LOOK": {
+            "defence": 0,
+            "choices": [
+                "Black leather, studs and chrome, white leather, bleach and catsuits",
+                "Billowing black cloak and sinister scarlet eyes",
+                "Exposed metallic exoskeleton and vat-grown muscle",
+                "OTHER"
+            ]
+        },
         "AN INTERESTING DECISION": {"forcedAt": 4},
         "CHOSEN OF THE FAIR": {},
         "DEUS EX MACHINA": {},
@@ -20,6 +36,8 @@
     },
     "positions": {
         "1": [
+            "EQUIPMENT",
+            "YOUR LOOK",
             "GIFTS OF THE FAIR",
             "NEOTECH",
             "OVERCHARGE"

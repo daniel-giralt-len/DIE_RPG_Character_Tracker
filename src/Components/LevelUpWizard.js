@@ -27,7 +27,7 @@ const LevelUpWizard = ({
         setUsedStatBudget(usedBudget)
     }
     const onSubmit = () => {
-        const potentialErrors = {
+        const e = {
             name: !form.name || form.name === '',
             paragon: !form.paragon,
             stats: usedStatBudget !== maxStatBudget,
@@ -36,9 +36,9 @@ const LevelUpWizard = ({
                     .filter(({id,selector}) => selector && (!form.advancementsRequirements || !form.advancementsRequirements[id]))
                 ) : []
         }
-        if(Object.values(potentialErrors).reduce((acc,v)=>acc||v,false)){
-            console.log(potentialErrors)
-            return setErrors(potentialErrors)
+        const anyError = e.name || e.paragon || e.stats || (e.advancementsRequirements).length > 0
+        if(anyError){
+            return setErrors(e)
         }
         return onFinishWizard(form)
     }

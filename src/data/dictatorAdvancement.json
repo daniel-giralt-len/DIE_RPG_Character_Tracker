@@ -1,5 +1,21 @@
 {
     "db": {
+        "EQUIPMENT": {
+            "choices": [
+                "A dagger and a ranged weapon. Bow, pistol or something else.",
+                "A rapier. Use Dex instead of Str for its dice pool. Special: recover one Guard.",
+                "Magical death touch. May use Dex instead of Str for its dice pool. This weapon is concealed and cannot be taken from you."
+            ]
+        },
+        "YOUR LOOK": {
+            "defence": 0,
+            "choices": [
+                "Austere, severe angular outfits",
+                "Flamboyant, straight out of a stage show",
+                "Spectacular eveningwear",
+                "OTHER"
+            ]
+        },
         "AN ARTIST’S PROGRESS": {
             "choices": [
                 "KNOW YOUR AUDIENCE",
@@ -38,6 +54,8 @@
     },
     "positions": {
         "1": [
+            "EQUIPMENT",
+            "YOUR LOOK",
             "SELECT YOUR EMOTION PALETTE",
             "THE TELL"
         ],
