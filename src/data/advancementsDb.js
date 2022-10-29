@@ -20,7 +20,7 @@ const getAdvancementsData = ({
     positions,
     paragon
 }) => positions.map(position => getAdvancementsInPosition(paragon, position))
-        .reduce((acc,arr)=>([...acc,...arr]),[])
+        .reduce((acc,v)=>([...acc,...(Array.isArray(v) ? v : [v])]),[])
         .map(id => ({id, ...advancementsDb[paragon].db[id]}))
 
 export default advancementsDb

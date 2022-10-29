@@ -122,10 +122,19 @@ const LevelUpWizard = ({
                 hasError={errors.stats}
                 maxBudget={maxStatBudget}
                 onStatsChange={onStatsChange}
-                paragon={form.paragon}
-                stats={form.stats || {}}
+                paragon={characterData.paragon}
+                stats={characterData.stats || {}}
                 translate={translate}
                 usedBudget={usedStatBudget}
+            />)}
+            {(advancement !== null) && (<AdvancementList
+                advancementPositions={[advancement]}
+                editable
+                hasErrors={errors.advancementsRequirements}
+                onAdvancementRequirementSelect={handleAdvancementRequirementSelect}
+                paragon={characterData.paragon}
+                requirements={characterData.advancementsRequirements}
+                translate={translate}
             />)}
             <AdvancementTree
                 paragon={characterData.paragon}
