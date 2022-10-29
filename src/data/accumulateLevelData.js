@@ -4,9 +4,12 @@ const accumulateLevelData = (character, selectedLevel) => {
         nLevel: character.nLevel,
     }
     base.advancements = [base.advancement]
-    for(let i=1; i<selectedLevel; i++){
+    
+    const maxLevel = (selectedLevel || character.nLevel) - 1
+    for(let i=1; i<maxLevel; i++){
         
     }
+
     return base
 }
 

@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import styled from 'styled-components'
 
 import StatList from './StatList'
 import AdvancementList from './AdvancementList'
@@ -7,8 +8,16 @@ import NameText from './LevelUpWizardInputs/NameText'
 import ParagonRadio from './LevelUpWizardInputs/ParagonRadio'
 import SubmitButton from './LevelUpWizardInputs/SubmitButton'
 
+import AdvancementTree from './AdvancementTree'
+
 import { Button, MainTitle } from './sharedComponents'
 import { getAdvancementsData } from '../data/advancementsDb'
+
+const Centerer = styled.section`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+`
 
 const LevelUpWizard = ({
     characterData,
@@ -22,6 +31,7 @@ const LevelUpWizard = ({
     const [usedStatBudget, setUsedStatBudget] = useState(0)
     const [errors, setErrors] = useState({})
     const [form, setForm] = useState({})
+    const [advancement, setAdvancement] = useState(null)
 
     const handleAdvancementRequirementSelect = advancementsRequirements => setForm({...form, advancementsRequirements})
     const onStatsChange = (stats, usedBudget) => {
@@ -95,7 +105,7 @@ const LevelUpWizard = ({
     const hasStatsUpgrade = levelsWithStatsUpgrade.includes(nLevel) || characterData.paragon === 'master'
 
     return (
-        <section>
+        <Centerer>
             <Button
                 style={{gridArea: 'opener'}}
                 onClick={onCloseWizard}
@@ -103,7 +113,9 @@ const LevelUpWizard = ({
             >
                 ✖️
             </Button>
-            <MainTitle>{translate('next level')} ({nLevel})</MainTitle>
+            <MainTitle>
+                {translate('next level')} ({nLevel})
+            </MainTitle>
             {hasStatsUpgrade && (<StatList
                 editable
                 hasError={errors.stats}
@@ -114,6 +126,11 @@ const LevelUpWizard = ({
                 translate={translate}
                 usedBudget={usedStatBudget}
             />)}
-        </section>)
+            <AdvancementTree
+                paragon={characterData.paragon}
+                selectedAdvancementsIds={characterData.advancements}
+                translate={translate}
+            />
+        </Centerer>)
 }
 export default LevelUpWizard

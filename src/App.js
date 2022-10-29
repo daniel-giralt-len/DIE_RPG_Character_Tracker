@@ -103,7 +103,7 @@ const App = () => {
             {
               isWizardOpen 
                 ? (<LevelUpWizard
-                    characterData={character}
+                    characterData={accumulateLevelData(character)}
                     nLevel={wizardLevel}
                     translate={translate}
                     onFinishWizard={handleNewCharacter}
