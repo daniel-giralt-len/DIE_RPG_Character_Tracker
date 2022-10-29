@@ -81,8 +81,6 @@ const App = () => {
     setAccumulatedLevelData(accumulateLevelData(character, selectedLevel))
   }, [character, selectedLevel])
 
-  console.log(accumulatedLevelData)
-
   return (
     <>
       <GlobalStyle/>

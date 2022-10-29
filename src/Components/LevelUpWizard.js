@@ -33,6 +33,7 @@ const LevelUpWizard = ({
     const [form, setForm] = useState({})
     const [advancement, setAdvancement] = useState(null)
 
+    const handleSelectAdvancement = i => setAdvancement(i)
     const handleAdvancementRequirementSelect = advancementsRequirements => setForm({...form, advancementsRequirements})
     const onStatsChange = (stats, usedBudget) => {
         setForm({...form, stats})
@@ -129,6 +130,8 @@ const LevelUpWizard = ({
             <AdvancementTree
                 paragon={characterData.paragon}
                 selectedAdvancementsIds={characterData.advancements}
+                tentativeSelected={advancement}
+                onSelectAdvancement={handleSelectAdvancement}
                 translate={translate}
             />
         </Centerer>)

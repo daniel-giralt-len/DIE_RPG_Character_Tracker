@@ -8,7 +8,7 @@ const cellWidth = 10
 const cellHeight = getTriangleHeight(cellWidth)
 
 const TreeStructure = styled.div`
-    grid-template-columns: repeat(6,${cellWidth*3/10}em);
+    grid-template-columns: repeat(6,${cellWidth*3.5/10}em);
 
     display: grid;
     grid-template-areas:
@@ -114,7 +114,13 @@ const directionalEdges = {
     19:[20]
 }
 
-const AdvancementTree = ({paragon, selectedAdvancementsIds, translate}) => {
+const AdvancementTree = ({
+    paragon,
+    onSelectAdvancement,
+    selectedAdvancementsIds,
+    tentativeSelected,
+    translate
+}) => {
 
     const advancementNames = advancementsDb[paragon].positions
 
@@ -124,19 +130,23 @@ const AdvancementTree = ({paragon, selectedAdvancementsIds, translate}) => {
         .filter(v=>v)
 
     return (<TreeStructure>
-        {Array(20).fill().map((_, i)=>(
-            <TreeCell
+        {Array(20).fill().map((_, i)=>{
+            const selected = [...selectedAdvancementsIds, tentativeSelected].includes(i+1)
+            const selectable = selectableCells.includes(i+1)
+            return (<TreeCell
                 key={i+1}
                 area={i+1}
-                backgroundImg={getBackgroundImage(i+1, selectedAdvancementsIds.includes(i+1))}
+                backgroundImg={getBackgroundImage(i+1, selected)}
                 isTriangleDown={isTriangleDown(i+1)}
-                selected={selectedAdvancementsIds.includes(i+1)}
-                selectable={selectableCells.includes(i+1)}
+                selected={selected}
+                onClick={() => selectable ? onSelectAdvancement(i+1) : null}
+                selectable={selectable}
             >
                 <CellContent isTriangleDown={isTriangleDown(i+1)}>
                     {i+1 === 1 ? translate('start').toUpperCase() : advancementNames[i+1]}
                 </CellContent>
             </TreeCell>)
+            }
         )}
     </TreeStructure>)
 }
