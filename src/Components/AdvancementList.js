@@ -8,11 +8,13 @@ import AdvancementRequirement from './LevelUpWizardInputs/AdvancementRequirement
 const ListItemWrapper = styled.li`
     list-style-type: disclosure-closed;
     margin-bottom: 1em;
+    ${({hasError})=>hasError ? 'background: #ffd7d7;':''}
 `
 
 const AdvancementList = ({
-    editable,
     advancementPositions,
+    editable,
+    hasErrors = [],
     onAdvancementRequirementSelect,
     paragon,
     requirements = {},
@@ -35,7 +37,8 @@ const AdvancementList = ({
             </SectionTitle>
             <ul>
                 {levelAdvancements.map(({id, selector}) => {
-                    return (<ListItemWrapper key={id}>
+                    console.log(hasErrors.find(e=>id===e.id))
+                    return (<ListItemWrapper key={id} hasError={hasErrors.find(e=>id===e.id)}>
                                 <div>{translate(id)}</div>
                                 {selector && (<AdvancementRequirement
                                     editable={editable}

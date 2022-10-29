@@ -8,12 +8,14 @@ import ParagonRadio from './LevelUpWizardInputs/ParagonRadio'
 import SubmitButton from './LevelUpWizardInputs/SubmitButton'
 
 import { MainTitle } from './sharedComponents'
+import { getAdvancementsData } from '../data/advancementsDb'
 
 const LevelUpWizard = ({
     nLevel,
     translate,
     onFinishWizard,
 }) => {
+    let advancementPosition = 1
     let maxStatBudget = 0
     const [usedStatBudget, setUsedStatBudget] = useState(0)
     const [errors, setErrors] = useState({})
@@ -29,9 +31,13 @@ const LevelUpWizard = ({
             name: !form.name || form.name === '',
             paragon: !form.paragon,
             stats: usedStatBudget !== maxStatBudget,
-            advancementsRequirements: false
+            advancementsRequirements: form.paragon ? (
+                getAdvancementsData({positions: [advancementPosition], paragon: form.paragon})
+                    .filter(({id,selector}) => selector && (!form.advancementsRequirements || !form.advancementsRequirements[id]))
+                ) : []
         }
         if(Object.values(potentialErrors).reduce((acc,v)=>acc||v,false)){
+            console.log(potentialErrors)
             return setErrors(potentialErrors)
         }
         return onFinishWizard(form)
@@ -40,7 +46,6 @@ const LevelUpWizard = ({
     if(nLevel === 1){ //choose paragon
         const onNameChange = name => setForm({...form, name})
         const onParagonChange = paragon => setForm({...form, paragon})
-        const advancementPosition = 1
         
         maxStatBudget = 2
         return (<section>
@@ -68,8 +73,9 @@ const LevelUpWizard = ({
                 usedBudget={usedStatBudget}
             />)}
             {form.paragon && (<AdvancementList
-                editable
                 advancementPositions={[advancementPosition]}
+                editable
+                hasErrors={errors.advancementsRequirements}
                 onAdvancementRequirementSelect={handleAdvancementRequirementSelect}
                 paragon={form.paragon}
                 requirements={form.advancementsRequirements}
