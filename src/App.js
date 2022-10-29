@@ -57,7 +57,6 @@ const App = () => {
         levelData
       ],
       nLevel: wizardLevel,
-      selectedAdvancementsIds: [1]
     }
     const newLevel = 1
     setCookie('character', newCharacter)

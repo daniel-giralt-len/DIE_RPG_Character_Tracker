@@ -10,10 +10,9 @@ const CharacterSheet = ({
     name,
     paragon,
     stats,
-    levels,
     nLevel,
     translate,
-    selectedAdvancementsIds
+    advancements
 }) => {
     return (<section>
             <CharacterTitle>{`${name}, ${translate(paragon).toUpperCase()}`}</CharacterTitle>
@@ -23,7 +22,7 @@ const CharacterSheet = ({
                 translate={translate}
             />
             <AdvancementList 
-                advancementPositions={selectedAdvancementsIds}
+                advancementPositions={advancements}
                 nLevel={nLevel}
                 paragon={paragon}
                 requirements={advancementsRequirements}
