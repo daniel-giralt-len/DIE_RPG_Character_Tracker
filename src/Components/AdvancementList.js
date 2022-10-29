@@ -40,7 +40,7 @@ const AdvancementList = ({
             <ul>
                 {levelAdvancements.map(({id, selector, ...rest}) => {
                     let title = translate(id)
-                    if(id==='EQUIPMENT'){
+                    if(id==='YOUR LOOK'){
                         title += ` (${translate('defence')} ${paragons[paragon].baseDefence})`
                     }
                     return (<ListItemWrapper key={id} hasError={hasErrors.find(e=>id===e.id)}>
