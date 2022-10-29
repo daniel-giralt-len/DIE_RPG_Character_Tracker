@@ -25,13 +25,14 @@ const LevelUpWizard = ({
         setUsedStatBudget(usedBudget)
     }
     const onSubmit = () => {
-        const validation = {
+        const potentialErrors = {
             name: !form.name || form.name === '',
             paragon: !form.paragon,
             stats: usedStatBudget !== maxStatBudget,
+            advancementsRequirements: false
         }
-        if(Object.values(validation).reduce((acc,v)=>acc||v,false)){
-            return setErrors(validation)
+        if(Object.values(potentialErrors).reduce((acc,v)=>acc||v,false)){
+            return setErrors(potentialErrors)
         }
         return onFinishWizard(form)
     }
@@ -39,35 +40,36 @@ const LevelUpWizard = ({
     if(nLevel === 1){ //choose paragon
         const onNameChange = name => setForm({...form, name})
         const onParagonChange = paragon => setForm({...form, paragon})
+        const advancementPosition = 1
         
         maxStatBudget = 2
         return (<section>
             <MainTitle>{translate('new character')}</MainTitle>
             <NameText
+                hasError={errors.name}
                 name={form.name || ''}
                 onNameChange={onNameChange}
                 translate={translate}
-                hasError={errors.name}
             />
             <ParagonRadio
+                hasError={errors.paragon}
                 selectedParagon={form.paragon}
                 onParagonChange={onParagonChange}
                 translate={translate}
-                hasError={errors.paragon}
             />
             {form.paragon && (<StatList
                 editable
+                hasError={errors.stats}
                 maxBudget={maxStatBudget}
-                usedBudget={usedStatBudget}
-                stats={form.stats || {}}
                 onStatsChange={onStatsChange}
                 paragon={form.paragon}
+                stats={form.stats || {}}
                 translate={translate}
-                hasError={errors.stats}
+                usedBudget={usedStatBudget}
             />)}
             {form.paragon && (<AdvancementList
                 editable
-                nLevel={nLevel}
+                advancementPositions={[advancementPosition]}
                 onAdvancementRequirementSelect={handleAdvancementRequirementSelect}
                 paragon={form.paragon}
                 requirements={form.advancementsRequirements}

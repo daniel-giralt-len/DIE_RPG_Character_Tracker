@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-import advancementsDb from '../data/advancementsDb'
+import { getAdvancementsData } from '../data/advancementsDb'
 
 import { SectionTitle } from './sharedComponents'
 import AdvancementRequirement from './LevelUpWizardInputs/AdvancementRequirement'
@@ -12,13 +12,16 @@ const ListItemWrapper = styled.li`
 
 const AdvancementList = ({
     editable,
-    nLevel,
+    advancementPositions,
     onAdvancementRequirementSelect,
     paragon,
     requirements = {},
     translate
 }) => {
-    const levelAdvancements = advancementsDb[paragon].positions[nLevel]
+    const levelAdvancements = getAdvancementsData({
+        positions: advancementPositions,
+        paragon
+    })
     const changeAdvancementRequirement = (id,v) => {
         onAdvancementRequirementSelect({
             ...requirements,
@@ -31,14 +34,13 @@ const AdvancementList = ({
                 {`${translate('advancements').toUpperCase()}`}
             </SectionTitle>
             <ul>
-                {levelAdvancements.map(id => {
-                    const data = advancementsDb[paragon].db[id]
+                {levelAdvancements.map(({id, selector}) => {
                     return (<ListItemWrapper key={id}>
                                 <div>{translate(id)}</div>
-                                {data.selector && (<AdvancementRequirement
+                                {selector && (<AdvancementRequirement
                                     editable={editable}
                                     onAdvancementRequirementSelect={v => changeAdvancementRequirement(id, v)}
-                                    type={data.selector}
+                                    type={selector}
                                     selected={requirements[id]}
                                     translate={translate}
                                 />)}

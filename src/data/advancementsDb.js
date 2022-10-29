@@ -14,4 +14,16 @@ const advancementsDb = {
     neo: neoAdvancement,
 }
 
+const getAdvancementsInPosition = (paragon, position) => advancementsDb[paragon].positions[position]
+
+const getAdvancementsData = ({
+    positions,
+    paragon
+}) => positions.map(position => getAdvancementsInPosition(paragon, position))
+        .reduce((acc,arr)=>([...acc,...arr]),[])
+        .map(id => ({id, ...advancementsDb[paragon].db[id]}))
+
 export default advancementsDb
+export {
+    getAdvancementsData
+}
