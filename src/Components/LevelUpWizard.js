@@ -7,16 +7,18 @@ import NameText from './LevelUpWizardInputs/NameText'
 import ParagonRadio from './LevelUpWizardInputs/ParagonRadio'
 import SubmitButton from './LevelUpWizardInputs/SubmitButton'
 
-import { MainTitle } from './sharedComponents'
+import { Button, MainTitle } from './sharedComponents'
 import { getAdvancementsData } from '../data/advancementsDb'
 
 const LevelUpWizard = ({
+    characterData,
     nLevel,
     translate,
     onFinishWizard,
+    onCloseWizard
 }) => {
     let advancementPosition = 1
-    let maxStatBudget = 0
+    let maxStatBudget = 1
     const [usedStatBudget, setUsedStatBudget] = useState(0)
     const [errors, setErrors] = useState({})
     const [form, setForm] = useState({})
@@ -87,6 +89,30 @@ const LevelUpWizard = ({
             />
         </section>)
     }
-    return <div>NEXT LEVEL</div>
+
+    const levelsWithStatsUpgrade = [3,6,9,12]
+    const hasStatsUpgrade = levelsWithStatsUpgrade.includes(nLevel) || characterData.paragon === 'master'
+
+    return (
+        <section>
+            <Button
+                style={{gridArea: 'opener'}}
+                onClick={onCloseWizard}
+                noBorder
+            >
+                ✖️
+            </Button>
+            <MainTitle>{translate('next level')} ({nLevel})</MainTitle>
+            {hasStatsUpgrade && (<StatList
+                editable
+                hasError={errors.stats}
+                maxBudget={maxStatBudget}
+                onStatsChange={onStatsChange}
+                paragon={form.paragon}
+                stats={form.stats || {}}
+                translate={translate}
+                usedBudget={usedStatBudget}
+            />)}
+        </section>)
 }
 export default LevelUpWizard

@@ -57,7 +57,6 @@ const Configuration = ({
     return (
         <ConfigurationWrapper closed={hidden}>
             <OpenButton
-                style={{gridArea: 'opener'}}
                 onClick={toggleHidden}
                 selected={!hidden}
                 noBorder

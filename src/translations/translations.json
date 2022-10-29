@@ -54,7 +54,8 @@
         "are you sure?": "Are you sure?",
         "new character": "New Character",
         "start": "Start",
-        "level up": "Level up"
+        "level up": "Level up",
+        "next level": "Next level"
     },
     "es": {
         "str":"Frz",
@@ -106,7 +107,8 @@
         "are you sure?": "Are you sure?",
         "new character": "New Character",
         "start": "Start",
-        "level up": "Level up"
+        "level up": "Level up",
+        "next level": "Next level"
     },
     "ca": {
         "str":"Frç",
@@ -158,6 +160,7 @@
         "are you sure?": "Are you sure?",
         "new character": "New Character",
         "start": "Start",
-        "level up": "Level up"
+        "level up": "Level up",
+        "next level": "Next level"
     }
 }

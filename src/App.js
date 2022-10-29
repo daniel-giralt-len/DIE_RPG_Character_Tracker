@@ -75,6 +75,7 @@ const App = () => {
     setWizardLevel(character.nLevel + 1)
     setWizardOpen(true)
   }
+  const handleCloseWizard = () => setWizardOpen(false)
   const handleLevelSelect = n => setSelectedLevel(n)
 
   useEffect(() => {
@@ -103,9 +104,11 @@ const App = () => {
             {
               isWizardOpen 
                 ? (<LevelUpWizard
+                    characterData={character}
                     nLevel={wizardLevel}
                     translate={translate}
                     onFinishWizard={handleNewCharacter}
+                    onCloseWizard={handleCloseWizard}
                   />)
                 : (<CharacterSheet
                   {...accumulatedLevelData}
