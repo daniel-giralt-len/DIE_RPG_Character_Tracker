@@ -1,7 +1,5 @@
 import styled from 'styled-components'
 
-import AdvancementTree from './AdvancementTree'
-
 import StatList from './StatList'
 import AdvancementList from './AdvancementList'
 

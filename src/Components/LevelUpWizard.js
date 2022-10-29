@@ -21,6 +21,7 @@ const LevelUpWizard = ({
     const [errors, setErrors] = useState({})
     const [form, setForm] = useState({})
 
+    console.log(form.advancementsRequirements)
     const handleAdvancementRequirementSelect = advancementsRequirements => setForm({...form, advancementsRequirements})
     const onStatsChange = (stats, usedBudget) => {
         setForm({...form, stats})

@@ -23,6 +23,7 @@ const AdvancementRequirement = ({
             return (<ChoicesList
                 choices={choices}
                 nChoices={nChoices}
+                onSelectChoice={onAdvancementRequirementSelect}
                 translate={translate}
                 selected={selected}
             />)
@@ -31,6 +32,11 @@ const AdvancementRequirement = ({
         if(type==='emotion'){
             return (<div>
                 {getEmotionPetalText(selected, translate)}
+            </div>)
+        }
+        if(type==='choices'){
+            return (<div>
+                {selected.value ? selected.value : translate(selected.id)}
             </div>)
         }
     }

@@ -135,8 +135,6 @@ const AdvancementTree = ({paragon, selectedAdvancementsIds, translate}) => {
         .map(id => directionalEdges[id] || [])
         .reduce((acc,arr)=>([...acc,...arr]),[])
         .filter(v=>v)
-    console.log(selectedAdvancementsIds)
-    console.log(selectableCells)
 
     return (<TreeStructure>
         {cellIds.map((row, i)=>(
