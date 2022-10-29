@@ -18,12 +18,14 @@ const ConfigurationWrapper = styled.div`
 const OpenButton = styled(Button)`
     grid-area: opener;
 `
+
 const LanguagesSection = styled.div`
     grid-area: languages;
     display: flex;
     align-items: center;
     ${({hidden})=>hidden ? 'display: none;' : ''}
 `
+
 const RestSection = styled.div`
     grid-area: rest;
     ${({hidden})=>hidden ? 'display: none;' : ''}
@@ -33,6 +35,7 @@ const Configuration = ({
     selectedLanguage,
     onDeleteCharacter,
     onLanguageChange,
+    onLevelUp,
     translate
 }) => {
     const [hidden, setHidden] = useState(true)
@@ -70,6 +73,9 @@ const Configuration = ({
             <RestSection hidden={hidden}>
                 <Button onClick={handleCharacterDelete}>
                     {translate(aboutToDelete ? 'are you sure?' : 'delete character')}
+                </Button>
+                <Button onClick={onLevelUp}>
+                    {translate('level up')}
                 </Button>
             </RestSection>
         </ConfigurationWrapper>

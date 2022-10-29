@@ -87,6 +87,6 @@ const LevelUpWizard = ({
             />
         </section>)
     }
-    return <div></div>
+    return <div>NEXT LEVEL</div>
 }
 export default LevelUpWizard
