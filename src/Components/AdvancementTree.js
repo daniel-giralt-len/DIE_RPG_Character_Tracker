@@ -8,60 +8,56 @@ const cellWidth = 10
 const cellHeight = getTriangleHeight(cellWidth)
 
 const TreeStructure = styled.div`
-    display:flex;
-    flex-direction: column;
-    
-    width: ${6*cellWidth}em;
-    height: ${6*cellHeight}em;
-`
+    grid-template-columns: repeat(6,${cellWidth*3/10}em);
 
-const TreeRow = styled.div`
-    display: flex;
+    display: grid;
+    grid-template-areas:
+        "l20 l19 .    l15 l16 . "
+        "l18 l17 l12  l13 l14 . "
+        ".   l11 l10  l9  .   . "
+        ".   .   l7   l8  .   . "
+        ".   l6  l5   l2  l3  l4"
+        ".   .   .    l1  .   . ";
 `
 
 const TreeCell = styled.div`
+    grid-area: l${({area})=>area};
+
     background: url(${({backgroundImg})=>backgroundImg});
     background-size: cover;
 
-    width: ${cellWidth+0.5}em;
+    font-size: 0.6em;
+    width: ${cellWidth}em;
     height: ${cellHeight}em;
 
     display: flex;
     justify-content: center;
     align-items: center;
     text-align: center;
-    ${({isTriangleDown})=>isTriangleDown === false
-        ? `border-bottom: 0.1em solid black;`
-        : ''
-    }
-    margin-right: -${0.325+cellWidth/2}em;
-
+    
     ${({selected,selectable})=>selectable && !selected
     ? `
     &:hover{
         text-decoration: underline;
     }
-    font-style: italic;
-    `
+    font-style: italic;`
     : ''}
-
-
-    ${({selected})=>selected
-    ? `color: #fff;`
-    : ''}
+    
+    
+    ${({isTriangleDown})=>isTriangleDown === false ? 'border-bottom: 0.1em solid black;' : '' }
+    ${({selected})=>selected ? `color: #fff;` : ''}
 `
 
 const CellContent = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
-    text-align: center;
     ${({isTriangleDown})=>isTriangleDown 
         ? `margin-bottom: ${cellWidth/4}em;`
         : `margin-top: ${cellHeight/3}em;`
     }
-    width: ${cellWidth/2}em;
-    height: ${cellHeight/2}em;
+    width: 50%;
+    height: 50%;
 `
 
 const isTriangleDown = i => {
@@ -102,15 +98,6 @@ const getBackgroundImage = (i,selected) => {
     return (isTriangleDown(i) ? bgDown : bgUp)
 }
 
-const cellIds = [
-    [20,     19,     null,   15,     16,     null, ],
-    [18,     17,     12,     13,     14,     null, ],
-    [null,   11,     10,     9,      null,   null, ],
-    [null,   null,   7,      8,      null,   null, ],
-    [null,   6,      5,      2,      3,      4,    ],
-    [null,   null,   null,   1,      null,   null,  ],
-]
-
 const directionalEdges = {
     1:[2],
     2:[3,5],
@@ -137,29 +124,20 @@ const AdvancementTree = ({paragon, selectedAdvancementsIds, translate}) => {
         .filter(v=>v)
 
     return (<TreeStructure>
-        {cellIds.map((row, i)=>(
-            <TreeRow key={i}>
-                {row.map((id, j) => {
-                    if(id === null){
-                        return (<TreeCell key={j} />)
-                    }
-                    const selected = selectedAdvancementsIds.includes(id)
-                    return(
-                        <TreeCell
-                            key={j}
-                            backgroundImg={getBackgroundImage(id, selected)}
-                            isTriangleDown={isTriangleDown(id)}
-                            selected={selected}
-                            selectable={selectableCells.includes(id)}
-                        >
-                            <CellContent isTriangleDown={isTriangleDown(id)}>
-                                {id === 1 ? translate('start').toUpperCase() : advancementNames[id]}
-                            </CellContent>
-                        </TreeCell>
-                )
-                })}
-            </TreeRow>
-        ))}
+        {Array(20).fill().map((_, i)=>(
+            <TreeCell
+                key={i+1}
+                area={i+1}
+                backgroundImg={getBackgroundImage(i+1, selectedAdvancementsIds.includes(i+1))}
+                isTriangleDown={isTriangleDown(i+1)}
+                selected={selectedAdvancementsIds.includes(i+1)}
+                selectable={selectableCells.includes(i+1)}
+            >
+                <CellContent isTriangleDown={isTriangleDown(i+1)}>
+                    {i+1 === 1 ? translate('start').toUpperCase() : advancementNames[i+1]}
+                </CellContent>
+            </TreeCell>)
+        )}
     </TreeStructure>)
 }
 
