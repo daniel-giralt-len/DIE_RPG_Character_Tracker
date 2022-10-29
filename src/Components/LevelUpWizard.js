@@ -21,7 +21,6 @@ const LevelUpWizard = ({
     const [errors, setErrors] = useState({})
     const [form, setForm] = useState({})
 
-    console.log(form.advancementsRequirements)
     const handleAdvancementRequirementSelect = advancementsRequirements => setForm({...form, advancementsRequirements})
     const onStatsChange = (stats, usedBudget) => {
         setForm({...form, stats})
@@ -34,7 +33,7 @@ const LevelUpWizard = ({
             stats: usedStatBudget !== maxStatBudget,
             advancementsRequirements: form.paragon ? (
                 getAdvancementsData({positions: [advancementPosition], paragon: form.paragon})
-                    .filter(({id,selector}) => selector && (!form.advancementsRequirements || !form.advancementsRequirements[id]))
+                    .filter(({id,selector}) => selector && (!form.advancementsRequirements || form.advancementsRequirements[id] === undefined))
                 ) : []
         }
         const anyError = e.name || e.paragon || e.stats || (e.advancementsRequirements).length > 0

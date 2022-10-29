@@ -39,11 +39,12 @@ const MainWrapper = styled.main`
 const App = () => {
   const [cookies, setCookie] = useCookies(['language', 'character'])
   const {language, character} = cookies
+  if(!language) setCookie('language', 'en')
+  if(!character) setCookie('character', {})
+
   const [selectedLevel, setSelectedLevel] = useState(1)
   const [accumulatedLevelData, setAccumulatedLevelData] = useState(accumulateLevelData(character, selectedLevel))
 
-  if(!language) setCookie('language', 'en')
-  if(!character) setCookie('character', {})
   const translate = getTranslator(language)
 
   const handleNewCharacter = level1Data => {
@@ -58,10 +59,12 @@ const App = () => {
   const handleDeleteCharacter = () => setCookie('character', {})
 
   useEffect(() => {
+    setAccumulatedLevelData(accumulateLevelData(character, selectedLevel))
+  }, [character, selectedLevel])
 
-  }, [character])
+  console.log(accumulatedLevelData);
 
-  const isWizardOpen = character.paragon
+  const isWizardOpen = !character.nLevel
 
   return (
     <>
@@ -79,15 +82,15 @@ const App = () => {
           <MainWrapper>
             {
               isWizardOpen 
-                ? (<CharacterSheet
-                    {...character}
-                    translate={translate}
-                  />)
-                : (<LevelUpWizard
+                ? (<LevelUpWizard
                     nLevel={1}
                     translate={translate}
                     onFinishWizard={handleNewCharacter}
                   />)
+                : (<CharacterSheet
+                  {...accumulatedLevelData}
+                  translate={translate}
+                />)
             }
           </MainWrapper>
         </Centerer>

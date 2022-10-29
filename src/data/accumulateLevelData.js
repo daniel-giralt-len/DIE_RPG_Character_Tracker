@@ -1,8 +1,10 @@
-const accumulateLevelData = (character, nLevel) => {
+const accumulateLevelData = (character, selectedLevel) => {
     const base = {
-        ...((character.levels||[])[0] || {})
+        ...((character.levels||[])[0] || {}),
+        nLevel: character.nLevel,
+        selectedAdvancementsIds: character.selectedAdvancementsIds
     }
-    for(let i=1; i<nLevel; i++){
+    for(let i=1; i<selectedLevel; i++){
         
     }
     return base
