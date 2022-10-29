@@ -64,6 +64,7 @@ const Configuration = ({
             </OpenButton>
             <LanguagesSection hidden={hidden}>
                 <RadioInput 
+                    groupName='languages'
                     options={languages}
                     onOptionChange={onLanguageChange}
                     selectedOption={selectedLanguage}

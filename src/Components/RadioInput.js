@@ -2,6 +2,7 @@ import React from 'react'
 import { Button } from './sharedComponents'
 
 const RadioInput = ({
+    groupName,
     options,
     onOptionChange,
     selectedOption,
@@ -10,11 +11,11 @@ const RadioInput = ({
     return (
         <div>
         {options.map(key => {
-                const isSelected = key===selectedOption
-                return (<React.Fragment key={key}>
+            const isSelected = key === selectedOption
+            return (<React.Fragment key={key}>
                         <input
                             type='radio'
-                            name='language'
+                            name={groupName}
                             id={key}
                             checked={isSelected}
                             onChange={() => onOptionChange(key)}
@@ -27,7 +28,7 @@ const RadioInput = ({
                         >
                             {`${isSelected ? '> ': ''}${translate(key)}`}
                         </Button>
-                    </React.Fragment>)
+                </React.Fragment>)
             }
         )}            
         </div>

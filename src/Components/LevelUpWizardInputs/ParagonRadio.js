@@ -14,6 +14,7 @@ const ParagonRadio = ({
             {translate('select your paragon:').toUpperCase()}
         </SectionTitle>
         <RadioInput
+            groupName='paragon'
             options={Object.keys(paragons)}
             onOptionChange={onParagonChange}
             selectedOption={selectedParagon}
