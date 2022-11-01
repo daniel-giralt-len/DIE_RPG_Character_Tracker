@@ -24,17 +24,18 @@ const ChoicesList = ({
         let newSelectedArray = [selectionObject]
         if(nChoices > 1){
             newSelectedArray = [...selected]
-            if(newSelectedArray.length >= nChoices){
-                newSelectedArray.splice(0,1)
-            }
+            if(newSelectedArray.length >= nChoices){ newSelectedArray.splice(0,1) }
             newSelectedArray.push(selectionObject)
         }
         return onSelectChoice(newSelectedArray)
     }
     const handleOtherChange = text => {
         setOtherText(text)
-        if(selected.id === 'OTHER'){
-            onSelectChoice({id:selected.id, value: text})
+        const otherIndex = selected.findIndex(s => s.id === 'OTHER')
+        if(otherIndex !== -1){
+            const newSelectedArray = [...selected]
+            newSelectedArray[otherIndex].value = text
+            onSelectChoice(newSelectedArray)
         }
     }
 
