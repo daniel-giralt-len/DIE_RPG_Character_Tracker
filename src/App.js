@@ -42,7 +42,7 @@ const App = () => {
   if(!language) setCookie('language', 'en')
   if(!character) setCookie('character', {})
 
-  const [selectedLevel, setSelectedLevel] = useState(1)
+  const [selectedLevel, setSelectedLevel] = useState(character.nLevel)
   const [accumulatedLevelData, setAccumulatedLevelData] = useState(accumulateLevelData(character, selectedLevel))
   
   const [wizardLevel, setWizardLevel] = useState(1)
@@ -58,10 +58,9 @@ const App = () => {
       ],
       nLevel: wizardLevel,
     }
-    const newLevel = 1
     setCookie('character', newCharacter)
-    setSelectedLevel(newLevel)
-    setAccumulatedLevelData(accumulateLevelData(newCharacter, newLevel))
+    setSelectedLevel(wizardLevel)
+    setAccumulatedLevelData(accumulateLevelData(newCharacter, wizardLevel))
 
     setWizardOpen(false)
   }
@@ -75,7 +74,9 @@ const App = () => {
     setWizardOpen(true)
   }
   const handleCloseWizard = () => setWizardOpen(false)
-  const handleLevelSelect = n => setSelectedLevel(n)
+  const handleLevelSelect = n => {
+    setSelectedLevel(n)
+  }
 
   useEffect(() => {
     setAccumulatedLevelData(accumulateLevelData(character, selectedLevel))
@@ -94,6 +95,7 @@ const App = () => {
               onLanguageChange={newLanguage => setCookie('language', newLanguage)}
               onLevelUp={handleOpenWizard}
               onLevelSelect={handleLevelSelect}
+              selectedLevel={selectedLevel}
               translate={translate}
             />
           </header>
@@ -109,6 +111,7 @@ const App = () => {
                   />)
                 : (<CharacterSheet
                   {...accumulatedLevelData}
+                  selectedLevel={selectedLevel}
                   translate={translate}
                 />)
             }

@@ -11,11 +11,12 @@ const CharacterSheet = ({
     paragon,
     stats,
     nLevel,
+    selectedLevel,
     translate,
     advancements
 }) => {
     return (<section>
-            <CharacterTitle>{`${name}, ${translate(paragon).toUpperCase()}`}</CharacterTitle>
+            <CharacterTitle>{`${name}, ${translate(paragon)} (${translate('lvl')} ${selectedLevel})`}</CharacterTitle>
             <StatList
                 stats={stats}
                 paragon={paragon}
