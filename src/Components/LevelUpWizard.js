@@ -27,6 +27,10 @@ const LevelUpWizard = ({
     onCloseWizard
 }) => {
     let maxStatBudget = 1
+
+    const levelsWithStatsUpgrade = [1,3,6,9,12]
+    const hasStatsUpgrade = levelsWithStatsUpgrade.includes(nLevel) || characterData.paragon === 'master'
+
     const [usedStatBudget, setUsedStatBudget] = useState(0)
     const [errors, setErrors] = useState({})
     const [form, setForm] = useState({})
@@ -39,18 +43,21 @@ const LevelUpWizard = ({
     }
     const onSubmit = () => {
         const e = {
-            name: !form.name || form.name === '',
-            paragon: !form.paragon,
-            stats: usedStatBudget !== maxStatBudget,
-            advancementsRequirements: form.paragon ? (
-                getAdvancementsData({positions: [form.advancement], paragon: form.paragon})
-                    .filter(({id,selector}) => selector && (!form.advancementsRequirements || form.advancementsRequirements[id] === undefined))
-                ) : []
+            advancement: !form.advancement,
+            advancementsRequirements: (form.paragon || characterData.paragon) 
+                ? (getAdvancementsData({positions: [form.advancement], paragon: form.paragon || characterData.paragon})
+                    .filter(({id,selector}) => selector && (!form.advancementsRequirements || form.advancementsRequirements[id] === undefined)))
+                : []
         }
-        const anyError = e.name || e.paragon || e.stats || (e.advancementsRequirements).length > 0
-        if(anyError){
-            return setErrors(e)
+        if(nLevel === 1){
+            e.name = !form.name || form.name === ''
+            e.paragon = !form.paragon
         }
+        if(hasStatsUpgrade){
+            e.stats = usedStatBudget !== maxStatBudget
+        }
+        const anyError = e.name || e.paragon || e.stats || e.advancement ||(e.advancementsRequirements).length > 0
+        if(anyError){ return setErrors(e) }
         return onFinishWizard(form)
     }
 
@@ -100,9 +107,6 @@ const LevelUpWizard = ({
         </section>)
     }
 
-    const levelsWithStatsUpgrade = [3,6,9,12]
-    const hasStatsUpgrade = levelsWithStatsUpgrade.includes(nLevel) || characterData.paragon === 'master'
-
     return (
         <Centerer>
             <Button
@@ -135,6 +139,7 @@ const LevelUpWizard = ({
                 translate={translate}
             />)}
             <AdvancementTree
+                hasErrors={errors.advancement}
                 paragon={characterData.paragon}
                 selectedAdvancementsIds={characterData.advancements}
                 tentativeSelected={form.advancement}

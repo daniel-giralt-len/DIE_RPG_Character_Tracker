@@ -18,6 +18,7 @@ const TreeStructure = styled.div`
         ".   .   l7   l8  .   . "
         ".   l6  l5   l2  l3  l4"
         ".   .   .    l1  .   . ";
+    ${({hasError})=>hasError ? 'background: #ffd7d7;':''}
 `
 
 const TreeCell = styled.div`
@@ -115,13 +116,13 @@ const directionalEdges = {
 }
 
 const AdvancementTree = ({
+    hasErrors,
     paragon,
     onSelectAdvancement,
     selectedAdvancementsIds,
     tentativeSelected,
     translate
 }) => {
-
     const advancementNames = advancementsDb[paragon].positions
 
     const selectableCells = selectedAdvancementsIds
@@ -129,7 +130,7 @@ const AdvancementTree = ({
         .reduce((acc,arr)=>([...acc,...arr]),[])
         .filter(v=>v)
 
-    return (<TreeStructure>
+    return (<TreeStructure hasError={hasErrors}>
         {Array(20).fill().map((_, i)=>{
             const selected = [...selectedAdvancementsIds, tentativeSelected].includes(i+1)
             const selectable = selectableCells.includes(i+1)
