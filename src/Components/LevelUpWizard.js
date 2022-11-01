@@ -26,14 +26,12 @@ const LevelUpWizard = ({
     onFinishWizard,
     onCloseWizard
 }) => {
-    let advancementPosition = 1
     let maxStatBudget = 1
     const [usedStatBudget, setUsedStatBudget] = useState(0)
     const [errors, setErrors] = useState({})
     const [form, setForm] = useState({})
-    const [advancement, setAdvancement] = useState(null)
 
-    const handleSelectAdvancement = i => setAdvancement(i)
+    const handleSelectAdvancement = i => setForm({...form, advancement: i})
     const handleAdvancementRequirementSelect = advancementsRequirements => setForm({...form, advancementsRequirements})
     const onStatsChange = (stats, usedBudget) => {
         setForm({...form, stats})
@@ -45,7 +43,7 @@ const LevelUpWizard = ({
             paragon: !form.paragon,
             stats: usedStatBudget !== maxStatBudget,
             advancementsRequirements: form.paragon ? (
-                getAdvancementsData({positions: [advancementPosition], paragon: form.paragon})
+                getAdvancementsData({positions: [form.advancement], paragon: form.paragon})
                     .filter(({id,selector}) => selector && (!form.advancementsRequirements || form.advancementsRequirements[id] === undefined))
                 ) : []
         }
@@ -87,7 +85,7 @@ const LevelUpWizard = ({
                 usedBudget={usedStatBudget}
             />)}
             {form.paragon && (<AdvancementList
-                advancementPositions={[advancementPosition]}
+                advancementPositions={[form.advancement]}
                 editable
                 hasErrors={errors.advancementsRequirements}
                 onAdvancementRequirementSelect={handleAdvancementRequirementSelect}
@@ -127,20 +125,24 @@ const LevelUpWizard = ({
                 translate={translate}
                 usedBudget={usedStatBudget}
             />)}
-            {(advancement !== null) && (<AdvancementList
-                advancementPositions={[advancement]}
+            {(form.advancement) && (<AdvancementList
+                advancementPositions={[form.advancement]}
                 editable
                 hasErrors={errors.advancementsRequirements}
                 onAdvancementRequirementSelect={handleAdvancementRequirementSelect}
                 paragon={characterData.paragon}
-                requirements={characterData.advancementsRequirements}
+                requirements={form.advancementsRequirements}
                 translate={translate}
             />)}
             <AdvancementTree
                 paragon={characterData.paragon}
                 selectedAdvancementsIds={characterData.advancements}
-                tentativeSelected={advancement}
+                tentativeSelected={form.advancement}
                 onSelectAdvancement={handleSelectAdvancement}
+                translate={translate}
+            />
+            <SubmitButton
+                onSubmit={onSubmit}
                 translate={translate}
             />
         </Centerer>)
