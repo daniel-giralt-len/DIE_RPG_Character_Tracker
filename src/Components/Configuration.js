@@ -56,8 +56,14 @@ const Configuration = ({
     }
 
     const handleLevelUp = () => {
+        setAboutToDelete(false)
         setHidden(true)
         onLevelUp()
+    }
+
+    const handleLevelSelect = i => {
+        setAboutToDelete(false)
+        onLevelSelect(i+1)
     }
 
     return (
@@ -84,7 +90,7 @@ const Configuration = ({
                     {Array(characterLevel)
                         .fill().map((_,i) => (<Button
                             key={i}
-                            onClick={() => onLevelSelect(i+1)}
+                            onClick={() => handleLevelSelect(i)}
                             selected={selectedLevel === i+1}
                         >
                             {`${selectedLevel === i+1 ? '> ' : ''}${i+1}`}
