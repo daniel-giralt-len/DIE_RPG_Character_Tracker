@@ -35,9 +35,11 @@ const AdvancementRequirement = ({
             </div>)
         }
         if(type==='choices'){
-            return (<div>
-                {selected.value ? selected.value : translate(selected.id)}
-            </div>)
+            return (<ul>
+                {(selected || []).map(s => (<li key={s.id}>
+                        {s.value ? s.value : translate(s.id)}
+                    </li>))}
+            </ul>)
         }
     }
 }
